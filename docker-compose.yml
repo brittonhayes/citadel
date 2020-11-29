@@ -1,0 +1,12 @@
+version: "2"
+services:
+  vulnerability:
+    build:
+      context: .
+      dockerfile: vulnerability/Dockerfile
+    restart: always
+    volumes:
+    - .:/go/src/github.com/brittonhayes/citadel
+    container_name: vulnerability
+    ports:
+    - 8800:8081
