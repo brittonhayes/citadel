@@ -4,9 +4,9 @@
 
 1. [Installation](#Installation)
 1. [About](#About)
-1. [Vulnerability Service](#Vulnerability Service)
-1. [Risk Service](#Risk Service)
-1. [Threat Intel Service](#Threat Intel Service)
+1. [Vulnerability Service](#vulnerability-service)
+1. [Risk Service](#risk-service)
+1. [Threat Intel Service](#threat-intel-service)
 
 ## Installation
 
@@ -29,7 +29,7 @@ Citadel includes the following services:
 
 1. [Vulnerability Service](./vulnerability)
 2. [Risk Service](./risk)
-3. [Threat Intel Service](#Threat intel service)
+3. [Threat Intel Service](#Threat-intel-service)
 
 #### Vulnerability Service
 
