@@ -1,14 +1,5 @@
 version: "2"
 services:
-  risk:
-    build:
-      context: .
-      dockerfile: risk/Dockerfile
-    restart: always
-    volumes:
-    - .:/go/src//home/peshka/GolandProjects/citadel
-    container_name: risk
-    ports: []
   vulnerability:
     build:
       context: .
@@ -18,4 +9,4 @@ services:
     - 8800:8081
     restart: always
     volumes:
-    - .:/go/src/github.com/brittonhayes/citadel
+    - .:/go/src/github.com/brittonhayes/citadel/vulnerability

@@ -11,18 +11,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb944d5-fd45-423a-b79b-ffdef773015b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/vulnerability/pkg/service/database_middleware.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/bug_report.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/bug_report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/feature_request.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/feature_request.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/service/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/service/logging_middleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/cmd/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/cmd/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/cmd/service/service_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/cmd/service/service_gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/endpoint/endpoint.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/endpoint/endpoint.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/endpoint/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/endpoint/middleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/http/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/http/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/service/database_middleware.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/service/logging_middleware.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/vulnerability/pkg/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/service/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/vulnerability/pkg/storage/sql.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/storage/sql.go" afterDir="false" />
     </list>
@@ -57,11 +54,14 @@
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/citadel.db" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/vulnerability" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/vulnerability" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Britton\go\src\github.com\brittonhayes\citadel\vulnerability\pkg\storage" />
       <recent name="C:\Users\Britton\go\src\github.com\brittonhayes\citadel\vulnerability\pkg\storage\sqllite" />
@@ -156,9 +156,10 @@
       <screen x="2560" y="0" width="1920" height="1040" />
     </state>
     <state x="3156" y="124" key="StringManipulation.SortTypeDialog/2560.0.1920.1040/0.0.2560.1400@2560.0.1920.1040" timestamp="1606616168019" />
-    <state x="3204" y="244" width="632" height="552" key="find.popup" timestamp="1606614669438">
-      <screen x="2560" y="0" width="1920" height="1040" />
+    <state x="859" y="359" width="843" height="750" key="find.popup" timestamp="1606704245723">
+      <screen x="0" y="27" width="2560" height="1413" />
     </state>
+    <state x="859" y="359" width="843" height="750" key="find.popup/0.27.2560.1413/2560.0.1920.1080@0.27.2560.1413" timestamp="1606704245723" />
     <state x="3204" y="244" width="632" height="552" key="find.popup/2560.0.1920.1040/0.0.2560.1400@2560.0.1920.1040" timestamp="1606614669438" />
   </component>
 </project>
