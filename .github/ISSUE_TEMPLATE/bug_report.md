@@ -3,7 +3,7 @@ name: Bug Report
 about: Report a bug in the project
 title: ''
 labels: 'bug'
-assignees: '@brittonhayes'
+assignees: 'brittonhayes'
 ---
 
 **Explain in detail how to reproduce the bug**

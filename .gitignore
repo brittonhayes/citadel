@@ -93,4 +93,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Database files
+*.db
+*.csv
+
 # End of https://www.toptal.com/developers/gitignore/api/go,osx,linux,windows

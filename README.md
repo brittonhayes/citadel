@@ -36,7 +36,6 @@ Citadel includes the following services:
 ```yaml
 Status: In Development
 Transports: 
-    - grpc
     - http
 Models: 
     - Vulnerability
@@ -53,7 +52,6 @@ Storage:
 ```yaml
 Status: Not Started
 Transports: 
-    - grpc
     - http
 Models: 
     - Risk

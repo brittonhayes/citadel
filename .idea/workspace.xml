@@ -11,14 +11,27 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8cb944d5-fd45-423a-b79b-ffdef773015b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/vulnerability/pkg/service/database_middleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/bug_report.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/bug_report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/feature_request.md" beforeDir="false" afterPath="$PROJECT_DIR$/.github/ISSUE_TEMPLATE/feature_request.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/service/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/service/logging_middleware.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/service/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/storage/sql.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/storage/sql.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" path="C:\Go" />
+  <component name="GOROOT" path="$PROJECT_DIR$/../../../linuxbrew/.linuxbrew/Cellar/go/1.15.5/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -38,13 +51,14 @@
     <option name="sortByType" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="sqlite" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="go.import.settings.migrated" value="true" />
     <property name="go.sdk.automatically.set" value="true" />
     <property name="go.tried.to.enable.integration.vgo.integrator" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/citadel.db" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -55,6 +69,29 @@
       <recent name="C:\Users\Britton\go\src\github.com\brittonhayes\citadel\vulnerability" />
       <recent name="C:\Users\Britton\go\src\github.com\brittonhayes\citadel" />
     </key>
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <module name="citadel" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="FILE" />
+      <filePath value="$PROJECT_DIR$" />
+      <package value="github.com/brittonhayes/citadel" />
+      <directory value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <module name="citadel" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <framework value="gotest" />
+      <kind value="DIRECTORY" />
+      <package value="github.com/brittonhayes/citadel" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -83,18 +120,37 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VgoProject">
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="3157" y="309" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606641781735">
-      <screen x="2560" y="0" width="1920" height="1040" />
+    <state x="1017" y="662" width="525" height="149" key="#GOROOT" timestamp="1606691808718">
+      <screen x="0" y="27" width="2560" height="1413" />
     </state>
+    <state x="1017" y="662" width="525" height="149" key="#GOROOT/0.27.2560.1413/2560.0.1920.1080@0.27.2560.1413" timestamp="1606691808718" />
+    <state x="478" y="395" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606701068199">
+      <screen x="0" y="27" width="2560" height="1413" />
+    </state>
+    <state x="478" y="395" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.2560.1413/2560.0.1920.1080@0.27.2560.1413" timestamp="1606701068199" />
+    <state x="796" y="447" width="529" height="422" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1606701033389">
+      <screen x="0" y="27" width="2560" height="1413" />
+    </state>
+    <state x="796" y="447" width="529" height="422" key="#com.intellij.fileTypes.FileTypeChooser/0.27.2560.1413/2560.0.1920.1080@0.27.2560.1413" timestamp="1606701033389" />
     <state x="3157" y="309" key="#com.intellij.fileTypes.FileTypeChooser/2560.0.1920.1040/0.0.2560.1400@2560.0.1920.1040" timestamp="1606641781735" />
-    <state x="2625" y="156" width="1328" height="711" key="SettingsEditor" timestamp="1606618660991">
-      <screen x="2560" y="0" width="1920" height="1040" />
+    <state x="1063" y="491" width="424" height="491" key="FileChooserDialogImpl" timestamp="1606701049262">
+      <screen x="0" y="27" width="2560" height="1413" />
     </state>
+    <state x="1063" y="491" width="424" height="491" key="FileChooserDialogImpl/0.27.2560.1413/2560.0.1920.1080@0.27.2560.1413" timestamp="1606701049262" />
+    <state x="863" y="471" width="824" height="532" key="IDE.errors.dialog" timestamp="1606692275620">
+      <screen x="0" y="27" width="2560" height="1413" />
+    </state>
+    <state x="863" y="471" width="824" height="532" key="IDE.errors.dialog/0.27.2560.1413/2560.0.1920.1080@0.27.2560.1413" timestamp="1606692275620" />
+    <state x="343" y="233" width="992" height="737" key="SettingsEditor" timestamp="1606692489519">
+      <screen x="0" y="27" width="2560" height="1413" />
+    </state>
+    <state x="343" y="233" width="992" height="737" key="SettingsEditor/0.27.2560.1413/2560.0.1920.1080@0.27.2560.1413" timestamp="1606692489519" />
     <state x="2625" y="156" width="1328" height="711" key="SettingsEditor/2560.0.1920.1040/0.0.2560.1400@2560.0.1920.1040" timestamp="1606618660991" />
     <state x="3156" y="124" key="StringManipulation.SortTypeDialog" timestamp="1606616168019">
       <screen x="2560" y="0" width="1920" height="1040" />
