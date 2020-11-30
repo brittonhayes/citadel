@@ -10,25 +10,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="8cb944d5-fd45-423a-b79b-ffdef773015b" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/cmd/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/cmd/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/cmd/service/service_gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/cmd/service/service_gen.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/endpoint/endpoint.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/endpoint/endpoint.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/endpoint/middleware.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/endpoint/middleware.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/http/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/http/handler.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/service/database_middleware.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/service/logging_middleware.go" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/service/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/service/service.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vulnerability/pkg/storage/sql.go" beforeDir="false" afterPath="$PROJECT_DIR$/vulnerability/pkg/storage/sql.go" afterDir="false" />
-    </list>
+    <list default="true" id="8cb944d5-fd45-423a-b79b-ffdef773015b" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="GOROOT" path="$PROJECT_DIR$/../../../linuxbrew/.linuxbrew/Cellar/go/1.15.5/libexec" />
+  <component name="GOROOT" path="$PROJECT_DIR$/../../../../../../linuxbrew/.linuxbrew/Cellar/go/1.15.5/libexec" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -126,10 +114,10 @@
     <integration-enabled>true</integration-enabled>
   </component>
   <component name="WindowStateProjectService">
-    <state x="1017" y="662" width="525" height="149" key="#GOROOT" timestamp="1606691808718">
+    <state x="1017" y="662" width="525" height="149" key="#GOROOT" timestamp="1606704706251">
       <screen x="0" y="27" width="2560" height="1413" />
     </state>
-    <state x="1017" y="662" width="525" height="149" key="#GOROOT/0.27.2560.1413/2560.0.1920.1080@0.27.2560.1413" timestamp="1606691808718" />
+    <state x="1017" y="662" width="525" height="149" key="#GOROOT/0.27.2560.1413/2560.0.1920.1080@0.27.2560.1413" timestamp="1606704706251" />
     <state x="478" y="395" width="800" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1606701068199">
       <screen x="0" y="27" width="2560" height="1413" />
     </state>
