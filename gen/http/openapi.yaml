@@ -1,0 +1,463 @@
+swagger: "2.0"
+info:
+  title: Citadel service
+  description: HTTP service for working with Security Operations Center resources
+  version: ""
+host: localhost:8000
+consumes:
+- application/json
+- application/xml
+- application/gob
+produces:
+- application/json
+- application/xml
+- application/gob
+paths:
+  /incidents:
+    get:
+      tags:
+      - incidents
+      summary: list all incidents
+      operationId: incidents#list all
+      parameters:
+      - name: limit
+        in: query
+        description: Limit the number of results
+        required: false
+        type: integer
+        maximum: 1000
+        minimum: 0
+      responses:
+        "200":
+          description: OK response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/IncidentResponse'
+      schemes:
+      - http
+  /incidents/{id}:
+    get:
+      tags:
+      - incidents
+      summary: find incidents
+      operationId: incidents#find
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the incident
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK response.
+          schema:
+            $ref: '#/definitions/IncidentsFindResponseBody'
+      schemes:
+      - http
+  /vulnerabilities:
+    get:
+      tags:
+      - vulnerabilities
+      summary: list vulnerabilities
+      description: List all of the vulnerabilities
+      operationId: vulnerabilities#list
+      parameters:
+      - name: limit
+        in: query
+        description: Limit the number of results
+        required: false
+        type: integer
+        maximum: 1000
+        minimum: 0
+      responses:
+        "200":
+          description: OK response.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/VulnerabilityResponse'
+      schemes:
+      - http
+    post:
+      tags:
+      - vulnerabilities
+      summary: submit vulnerabilities
+      operationId: vulnerabilities#submit
+      parameters:
+      - name: SubmitRequestBody
+        in: body
+        required: true
+        schema:
+          $ref: '#/definitions/VulnerabilitiesSubmitRequestBody'
+      responses:
+        "201":
+          description: Created response.
+        "404":
+          description: Not Found response.
+          schema:
+            $ref: '#/definitions/VulnerabilitiesSubmitNoMatchResponseBody'
+      schemes:
+      - http
+  /vulnerabilities/{id}:
+    get:
+      tags:
+      - vulnerabilities
+      summary: find vulnerabilities
+      operationId: vulnerabilities#find
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the vulnerability
+        required: true
+        type: integer
+      responses:
+        "200":
+          description: OK response.
+          schema:
+            $ref: '#/definitions/VulnerabilitiesFindResponseBody'
+            required:
+            - id
+        "404":
+          description: Not Found response.
+          schema:
+            $ref: '#/definitions/VulnerabilitiesFindNoMatchResponseBody'
+      schemes:
+      - http
+definitions:
+  IncidentResponse:
+    title: IncidentResponse
+    type: object
+    properties:
+      Permissions:
+        type: string
+        description: Permissions associated with incident
+        example: admin
+        enum:
+        - admin
+        - analyst
+        - guest
+      affected_customers:
+        type: array
+        items:
+          type: string
+          example: Sint suscipit placeat et dolorem.
+        description: A list of the affected customers
+        example:
+        - Beatae totam deleniti doloremque iusto aspernatur voluptatum.
+        - Eos quam modi.
+        - Ipsam sed est dicta libero suscipit.
+      created_at:
+        type: string
+        description: When the incident was submitted
+        example: "1995-01-19T16:58:53Z"
+        format: date-time
+      date:
+        type: string
+        description: Date the incident occurred
+        example: "2010-01-01"
+        format: date
+      date_closed:
+        type: string
+        description: Date the incident occurred
+        example: "1986-09-10"
+        format: date
+      id:
+        type: integer
+        description: Unique ID of the incident
+        example: 17983405837322284101
+        minimum: 0
+      responsible_party:
+        type: string
+        description: What group or individual caused the initial incident
+        example: Rerum veritatis omnis sit eveniet.
+      root_cause:
+        type: string
+        description: The original cause of the incident
+        example: Ut eveniet autem sint non vero repellendus.
+      scope:
+        type: string
+        description: The scope of impact of this incident
+        example: Nihil eos.
+      severity:
+        type: integer
+        description: The severity of the incident
+        example: 1
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+      slack_channel:
+        type: string
+        description: The slack channel for incident discussions
+        example: In tenetur sit cumque deserunt.
+      summary:
+        type: string
+        description: The detailed description of the incident
+        example: Labore sunt.
+      title:
+        type: string
+        description: The short title of the incident
+        example: Unde iste dicta doloremque qui.
+      updated_at:
+        type: string
+        description: When the incident was last updated
+        example: "1981-05-26T16:14:04Z"
+        format: date-time
+    example:
+      Permissions: analyst
+      affected_customers:
+      - Dolor praesentium ut qui voluptates.
+      - Alias saepe et.
+      - Consequuntur enim omnis numquam corporis amet.
+      - Cum ipsum magni tenetur et.
+      created_at: "1992-08-26T10:48:43Z"
+      date: "1989-05-11"
+      date_closed: "2000-11-04"
+      id: 8928357878783631610
+      responsible_party: Ipsam et.
+      root_cause: Quidem et velit dolore.
+      scope: Voluptatem sit quisquam eveniet maiores.
+      severity: 2
+      slack_channel: Voluptatem omnis expedita.
+      summary: Fugit dicta voluptas aut explicabo.
+      title: Reprehenderit ullam enim cum enim.
+      updated_at: "1991-06-03T12:11:33Z"
+  IncidentsFindResponseBody:
+    title: IncidentsFindResponseBody
+    type: object
+    properties:
+      Permissions:
+        type: string
+        description: Permissions associated with incident
+        example: guest
+        enum:
+        - admin
+        - analyst
+        - guest
+      affected_customers:
+        type: array
+        items:
+          type: string
+          example: Possimus ut consequuntur sed.
+        description: A list of the affected customers
+        example:
+        - Minus ipsa harum voluptas totam.
+        - Odio et perspiciatis deserunt inventore qui.
+        - Enim molestiae aut sed cupiditate.
+        - Dolorem ducimus.
+      created_at:
+        type: string
+        description: When the incident was submitted
+        example: "2011-04-03T17:22:05Z"
+        format: date-time
+      date:
+        type: string
+        description: Date the incident occurred
+        example: "2011-05-22"
+        format: date
+      date_closed:
+        type: string
+        description: Date the incident occurred
+        example: "1984-09-08"
+        format: date
+      id:
+        type: integer
+        description: Unique ID of the incident
+        example: 1874956703170258092
+        minimum: 0
+      responsible_party:
+        type: string
+        description: What group or individual caused the initial incident
+        example: Quis sed occaecati.
+      root_cause:
+        type: string
+        description: The original cause of the incident
+        example: Atque eos repudiandae in.
+      scope:
+        type: string
+        description: The scope of impact of this incident
+        example: Minus atque numquam.
+      severity:
+        type: integer
+        description: The severity of the incident
+        example: 1
+        enum:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+      slack_channel:
+        type: string
+        description: The slack channel for incident discussions
+        example: Ad in delectus sunt expedita esse nemo.
+      summary:
+        type: string
+        description: The detailed description of the incident
+        example: Delectus quisquam ratione id nihil eum accusantium.
+      title:
+        type: string
+        description: The short title of the incident
+        example: Atque aut assumenda.
+      updated_at:
+        type: string
+        description: When the incident was last updated
+        example: "2005-02-03T04:02:13Z"
+        format: date-time
+    example:
+      Permissions: analyst
+      affected_customers:
+      - Nesciunt numquam.
+      - Dolore sit.
+      - Eius velit dicta atque dolorum aut.
+      created_at: "1971-06-08T00:13:52Z"
+      date: "1987-12-09"
+      date_closed: "2010-06-06"
+      id: 10091559795463585895
+      responsible_party: Enim quasi quo saepe cumque deserunt voluptatibus.
+      root_cause: Voluptas quaerat et.
+      scope: Fugit commodi.
+      severity: 4
+      slack_channel: Eveniet cumque perferendis voluptatem.
+      summary: Ut nesciunt maxime.
+      title: Deleniti ratione cumque non asperiores at pariatur.
+      updated_at: "2015-10-19T22:22:03Z"
+  VulnerabilitiesFindNoMatchResponseBody:
+    title: VulnerabilitiesFindNoMatchResponseBody
+    type: string
+    description: No vulnerability matched given criteria
+    example: Atque atque numquam atque ducimus.
+  VulnerabilitiesFindResponseBody:
+    title: VulnerabilitiesFindResponseBody
+    type: object
+    properties:
+      cvss_score:
+        type: number
+        description: Severity score of the vulnerability
+        example: 4.7
+        format: float
+      description:
+        type: string
+        description: Description of the vulnerability
+        example: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+      exploitable:
+        type: boolean
+        description: If the vulnerability is exploitable
+        example: true
+      id:
+        type: integer
+        description: Unique ID of the vulnerability
+        example: 14165359203091955058
+        minimum: 0
+      is_patchable:
+        type: boolean
+        description: If the vulnerability is patchable
+        example: false
+      is_upgradeable:
+        type: boolean
+        description: If the vulnerability is upgradeable
+        example: true
+      title:
+        type: string
+        description: Title of the vulnerability
+        example: CVE-2020-10
+    example:
+      cvss_score: 4.7
+      description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+      exploitable: false
+      id: 12474090057829049257
+      is_patchable: true
+      is_upgradeable: true
+      title: CVE-2020-10
+    required:
+    - id
+  VulnerabilitiesSubmitNoMatchResponseBody:
+    title: VulnerabilitiesSubmitNoMatchResponseBody
+    type: string
+    description: No vulnerability matched given criteria
+    example: Facere qui eos magnam dolor.
+  VulnerabilitiesSubmitRequestBody:
+    title: VulnerabilitiesSubmitRequestBody
+    type: object
+    properties:
+      cvss_score:
+        type: number
+        description: Severity score of the vulnerability
+        example: 0.8975647
+        format: float
+      description:
+        type: string
+        description: Description of the vulnerability
+        example: Nam aut est voluptas commodi voluptatem consequatur.
+      exploitable:
+        type: boolean
+        description: If the vulnerability is exploitable
+        example: true
+      is_patchable:
+        type: boolean
+        description: If the vulnerability is patchable
+        example: true
+      is_upgradeable:
+        type: boolean
+        description: If the vulnerability is upgradeable
+        example: true
+      title:
+        type: string
+        description: Title of the vulnerability
+        example: Ut aliquid officiis aperiam dolorem quia rerum.
+    example:
+      cvss_score: 0.14538865
+      description: Repellendus atque alias minus.
+      exploitable: false
+      is_patchable: true
+      is_upgradeable: true
+      title: Consequatur est.
+  VulnerabilityResponse:
+    title: VulnerabilityResponse
+    type: object
+    properties:
+      cvss_score:
+        type: number
+        description: Severity score of the vulnerability
+        example: 4.7
+        format: float
+      description:
+        type: string
+        description: Description of the vulnerability
+        example: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+      exploitable:
+        type: boolean
+        description: If the vulnerability is exploitable
+        example: false
+      id:
+        type: integer
+        description: Unique ID of the vulnerability
+        example: 13804450887465042763
+        minimum: 0
+      is_patchable:
+        type: boolean
+        description: If the vulnerability is patchable
+        example: true
+      is_upgradeable:
+        type: boolean
+        description: If the vulnerability is upgradeable
+        example: true
+      title:
+        type: string
+        description: Title of the vulnerability
+        example: CVE-2020-10
+    example:
+      cvss_score: 4.7
+      description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+      exploitable: false
+      id: 16284005953265787933
+      is_patchable: false
+      is_upgradeable: false
+      title: CVE-2020-10
+    required:
+    - id
