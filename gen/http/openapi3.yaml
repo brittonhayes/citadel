@@ -27,7 +27,7 @@ paths:
         example: 750
       responses:
         "200":
-          description: ""
+          description: OK response.
           content:
             application/json:
               schema:
@@ -139,7 +139,7 @@ paths:
         example: 1265324971239134687
       responses:
         "200":
-          description: ""
+          description: OK response.
           content:
             application/json:
               schema:
@@ -183,7 +183,7 @@ paths:
         example: 374
       responses:
         "200":
-          description: ""
+          description: OK response.
           content:
             application/json:
               schema:
@@ -254,12 +254,9 @@ paths:
               title: Voluptatum ut eveniet.
       responses:
         "201":
-          description: ""
-          content:
-            application/json:
-              example: {}
+          description: Created response.
         "404":
-          description: ""
+          description: Not Found response.
           content:
             application/json:
               schema:
@@ -283,7 +280,7 @@ paths:
         example: 347206281519856490
       responses:
         "200":
-          description: ""
+          description: OK response.
           content:
             application/json:
               schema:
@@ -297,7 +294,7 @@ paths:
                 is_upgradeable: false
                 title: CVE-2020-10
         "404":
-          description: ""
+          description: Not Found response.
           content:
             application/json:
               schema:
