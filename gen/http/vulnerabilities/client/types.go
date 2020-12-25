@@ -3,13 +3,12 @@
 // vulnerabilities HTTP client types
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package client
 
 import (
-	vulnerabilities "citadel/gen/vulnerabilities"
-
+	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
 	goa "goa.design/goa/v3/pkg"
 )
 

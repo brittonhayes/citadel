@@ -1,9 +1,6 @@
 package main
 
 import (
-	citadel "citadel"
-	incidents "citadel/gen/incidents"
-	vulnerabilities "citadel/gen/vulnerabilities"
 	"context"
 	"flag"
 	"fmt"
@@ -14,6 +11,9 @@ import (
 	"sync"
 	"syscall"
 
+	citadel "github.com/brittonhayes/citadel"
+	incidents "github.com/brittonhayes/citadel/gen/incidents"
+	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
 	"github.com/go-kit/kit/log"
 )
 

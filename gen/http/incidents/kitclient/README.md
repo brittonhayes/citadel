@@ -3,7 +3,7 @@
 # client
 
 ```go
-import "citadel/gen/http/incidents/kitclient"
+import "github.com/brittonhayes/citadel/gen/http/incidents/kitclient"
 ```
 
 ## Index

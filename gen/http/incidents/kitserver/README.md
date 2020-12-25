@@ -3,7 +3,7 @@
 # server
 
 ```go
-import "citadel/gen/http/incidents/kitserver"
+import "github.com/brittonhayes/citadel/gen/http/incidents/kitserver"
 ```
 
 ## Index

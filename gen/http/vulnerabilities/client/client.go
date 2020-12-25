@@ -3,7 +3,7 @@
 // vulnerabilities client HTTP transport
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package client
 

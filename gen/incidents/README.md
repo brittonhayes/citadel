@@ -3,7 +3,7 @@
 # incidents
 
 ```go
-import "citadel/gen/incidents"
+import "github.com/brittonhayes/citadel/gen/incidents"
 ```
 
 ## Index

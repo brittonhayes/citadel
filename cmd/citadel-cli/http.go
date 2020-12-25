@@ -1,10 +1,10 @@
 package main
 
 import (
-	cli "citadel/gen/http/cli/citadel"
 	"net/http"
 	"time"
 
+	cli "github.com/brittonhayes/citadel/gen/http/cli/citadel"
 	"github.com/go-kit/kit/endpoint"
 	goahttp "goa.design/goa/v3/http"
 )

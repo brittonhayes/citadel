@@ -3,7 +3,7 @@
 // incidents go-kit HTTP server encoders and decoders
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package server
 

@@ -3,15 +3,15 @@
 // incidents HTTP client CLI support package
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package client
 
 import (
-	incidents "citadel/gen/incidents"
 	"fmt"
 	"strconv"
 
+	incidents "github.com/brittonhayes/citadel/gen/incidents"
 	goa "goa.design/goa/v3/pkg"
 )
 

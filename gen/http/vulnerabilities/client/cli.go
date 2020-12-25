@@ -3,16 +3,16 @@
 // vulnerabilities HTTP client CLI support package
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package client
 
 import (
-	vulnerabilities "citadel/gen/vulnerabilities"
 	"encoding/json"
 	"fmt"
 	"strconv"
 
+	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
 	goa "goa.design/goa/v3/pkg"
 )
 

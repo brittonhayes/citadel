@@ -3,8 +3,8 @@ package citadel
 import (
 	"context"
 	"fmt"
-	"github.com/brittonhayes/citadel/gen/incidents"
 
+	incidents "github.com/brittonhayes/citadel/gen/incidents"
 	"github.com/go-kit/kit/log"
 )
 

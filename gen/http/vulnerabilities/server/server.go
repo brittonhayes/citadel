@@ -3,15 +3,15 @@
 // vulnerabilities HTTP server
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package server
 
 import (
-	vulnerabilities "citadel/gen/vulnerabilities"
 	"context"
 	"net/http"
 
+	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
 	"github.com/go-kit/kit/endpoint"
 	goahttp "goa.design/goa/v3/http"
 	goa "goa.design/goa/v3/pkg"

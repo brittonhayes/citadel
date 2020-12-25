@@ -1,12 +1,6 @@
 package main
 
 import (
-	incidentskitsvr "citadel/gen/http/incidents/kitserver"
-	incidentssvr "citadel/gen/http/incidents/server"
-	vulnerabilitieskitsvr "citadel/gen/http/vulnerabilities/kitserver"
-	vulnerabilitiessvr "citadel/gen/http/vulnerabilities/server"
-	incidents "citadel/gen/incidents"
-	vulnerabilities "citadel/gen/vulnerabilities"
 	"context"
 	"fmt"
 	"net/http"
@@ -14,6 +8,12 @@ import (
 	"sync"
 	"time"
 
+	incidentskitsvr "github.com/brittonhayes/citadel/gen/http/incidents/kitserver"
+	incidentssvr "github.com/brittonhayes/citadel/gen/http/incidents/server"
+	vulnerabilitieskitsvr "github.com/brittonhayes/citadel/gen/http/vulnerabilities/kitserver"
+	vulnerabilitiessvr "github.com/brittonhayes/citadel/gen/http/vulnerabilities/server"
+	incidents "github.com/brittonhayes/citadel/gen/incidents"
+	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
 	"github.com/go-kit/kit/endpoint"
 	"github.com/go-kit/kit/log"
 	kithttp "github.com/go-kit/kit/transport/http"

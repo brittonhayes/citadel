@@ -3,15 +3,15 @@
 // incidents HTTP server
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package server
 
 import (
-	incidents "citadel/gen/incidents"
 	"context"
 	"net/http"
 
+	incidents "github.com/brittonhayes/citadel/gen/incidents"
 	"github.com/go-kit/kit/endpoint"
 	goahttp "goa.design/goa/v3/http"
 	goa "goa.design/goa/v3/pkg"

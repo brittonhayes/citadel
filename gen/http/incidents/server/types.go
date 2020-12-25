@@ -3,12 +3,12 @@
 // incidents HTTP server types
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package server
 
 import (
-	incidents "citadel/gen/incidents"
+	incidents "github.com/brittonhayes/citadel/gen/incidents"
 )
 
 // FindResponseBody is the type of the "incidents" service "find" endpoint HTTP

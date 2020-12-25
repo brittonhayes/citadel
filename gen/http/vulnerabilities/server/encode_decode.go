@@ -3,17 +3,17 @@
 // vulnerabilities HTTP server encoders and decoders
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package server
 
 import (
-	vulnerabilities "citadel/gen/vulnerabilities"
 	"context"
 	"io"
 	"net/http"
 	"strconv"
 
+	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
 	goahttp "goa.design/goa/v3/http"
 	goa "goa.design/goa/v3/pkg"
 )

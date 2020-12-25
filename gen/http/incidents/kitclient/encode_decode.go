@@ -3,15 +3,15 @@
 // incidents go-kit HTTP client encoders and decoders
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package client
 
 import (
-	"citadel/gen/http/incidents/client"
 	"context"
 	"net/http"
 
+	"github.com/brittonhayes/citadel/gen/http/incidents/client"
 	kithttp "github.com/go-kit/kit/transport/http"
 	goahttp "goa.design/goa/v3/http"
 )

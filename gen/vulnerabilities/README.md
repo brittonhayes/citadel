@@ -3,7 +3,7 @@
 # vulnerabilities
 
 ```go
-import "citadel/gen/vulnerabilities"
+import "github.com/brittonhayes/citadel/gen/vulnerabilities"
 ```
 
 ## Index

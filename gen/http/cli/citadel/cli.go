@@ -3,18 +3,18 @@
 // citadel HTTP client CLI support package
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package cli
 
 import (
-	incidentsc "citadel/gen/http/incidents/client"
-	vulnerabilitiesc "citadel/gen/http/vulnerabilities/client"
 	"flag"
 	"fmt"
 	"net/http"
 	"os"
 
+	incidentsc "github.com/brittonhayes/citadel/gen/http/incidents/client"
+	vulnerabilitiesc "github.com/brittonhayes/citadel/gen/http/vulnerabilities/client"
 	"github.com/go-kit/kit/endpoint"
 	goahttp "goa.design/goa/v3/http"
 )

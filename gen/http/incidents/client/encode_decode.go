@@ -3,19 +3,19 @@
 // incidents HTTP client encoders and decoders
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package client
 
 import (
 	"bytes"
-	incidents "citadel/gen/incidents"
 	"context"
 	"fmt"
 	"io/ioutil"
 	"net/http"
 	"net/url"
 
+	incidents "github.com/brittonhayes/citadel/gen/incidents"
 	goahttp "goa.design/goa/v3/http"
 	goa "goa.design/goa/v3/pkg"
 )

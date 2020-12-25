@@ -3,7 +3,7 @@
 # cli
 
 ```go
-import "citadel/gen/http/cli/citadel"
+import "github.com/brittonhayes/citadel/gen/http/cli/citadel"
 ```
 
 ## Index

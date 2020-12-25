@@ -3,7 +3,7 @@
 # server
 
 ```go
-import "citadel/gen/http/vulnerabilities/kitserver"
+import "github.com/brittonhayes/citadel/gen/http/vulnerabilities/kitserver"
 ```
 
 ## Index

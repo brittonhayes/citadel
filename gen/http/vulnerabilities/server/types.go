@@ -3,12 +3,12 @@
 // vulnerabilities HTTP server types
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package server
 
 import (
-	vulnerabilities "citadel/gen/vulnerabilities"
+	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
 )
 
 // SubmitRequestBody is the type of the "vulnerabilities" service "submit"

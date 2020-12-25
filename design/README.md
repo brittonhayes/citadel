@@ -3,7 +3,7 @@
 # design
 
 ```go
-import "citadel/design"
+import "github.com/brittonhayes/citadel/design"
 ```
 
 ## Index

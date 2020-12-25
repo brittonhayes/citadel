@@ -3,8 +3,8 @@ package citadel
 import (
 	"context"
 	"fmt"
-	"github.com/brittonhayes/citadel/gen/vulnerabilities"
 
+	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
 	"github.com/go-kit/kit/log"
 )
 

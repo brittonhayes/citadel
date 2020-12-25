@@ -3,7 +3,7 @@
 // incidents endpoints
 //
 // Command:
-// $ goa gen citadel/design
+// $ goa gen github.com/brittonhayes/citadel/design
 
 package incidents
 
