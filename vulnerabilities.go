@@ -1,9 +1,9 @@
 package citadel
 
 import (
-	vulnerabilities "citadel/gen/vulnerabilities"
 	"context"
 	"fmt"
+	"github.com/brittonhayes/citadel/gen/vulnerabilities"
 
 	"github.com/go-kit/kit/log"
 )

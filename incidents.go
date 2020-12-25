@@ -1,9 +1,9 @@
 package citadel
 
 import (
-	incidents "citadel/gen/incidents"
 	"context"
 	"fmt"
+	"github.com/brittonhayes/citadel/gen/incidents"
 
 	"github.com/go-kit/kit/log"
 )
