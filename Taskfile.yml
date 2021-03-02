@@ -13,6 +13,11 @@ tasks:
       - go build -o ./bin/citadel ./cmd/citadel
       - go build -o ./bin/citadel-cli ./cmd/citadel-cli
 
+  build:distros:
+    desc: "Build multiple distributions with goreleaser"
+    cmds:
+      - goreleaser build -f .goreleaser.yml --rm-dist --skip-validate
+
   server:
     desc: "Run the citadel server"
     cmds:

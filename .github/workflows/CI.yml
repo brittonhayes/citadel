@@ -38,4 +38,4 @@ jobs:
         uses: goreleaser/goreleaser-action@v2
         with:
           version: latest
-          args: build --rm-dist --skip-validate
+          args: build -f .goreleaser.yml --rm-dist --skip-validate

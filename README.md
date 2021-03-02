@@ -18,9 +18,10 @@ This project uses [Taskfiles](https://taskfile.dev) as an alternative to Makefil
 ```shell
 ❯ task -l
 task: Available tasks for this project:
-* build: 	Build the project binaries
-* gen: 		Generate updated project files
-* server: 	Run the citadel server
+* build: 		Build the project binaries
+* build:distros: 	Build multiple distributions with goreleaser
+* gen: 			Generate updated project files
+* server: 		Run the citadel server
 ```
 
 ### Server
