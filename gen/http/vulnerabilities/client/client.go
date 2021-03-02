@@ -11,8 +11,8 @@ import (
 	"context"
 	"net/http"
 
-	"github.com/go-kit/kit/endpoint"
 	goahttp "goa.design/goa/v3/http"
+	goa "goa.design/goa/v3/pkg"
 )
 
 // Client lists the vulnerabilities service endpoint HTTP clients.
@@ -60,7 +60,7 @@ func NewClient(
 
 // Find returns an endpoint that makes HTTP requests to the vulnerabilities
 // service find server.
-func (c *Client) Find() endpoint.Endpoint {
+func (c *Client) Find() goa.Endpoint {
 	var (
 		decodeResponse = DecodeFindResponse(c.decoder, c.RestoreResponseBody)
 	)
@@ -79,7 +79,7 @@ func (c *Client) Find() endpoint.Endpoint {
 
 // List returns an endpoint that makes HTTP requests to the vulnerabilities
 // service list server.
-func (c *Client) List() endpoint.Endpoint {
+func (c *Client) List() goa.Endpoint {
 	var (
 		encodeRequest  = EncodeListRequest(c.encoder)
 		decodeResponse = DecodeListResponse(c.decoder, c.RestoreResponseBody)
@@ -103,7 +103,7 @@ func (c *Client) List() endpoint.Endpoint {
 
 // Submit returns an endpoint that makes HTTP requests to the vulnerabilities
 // service submit server.
-func (c *Client) Submit() endpoint.Endpoint {
+func (c *Client) Submit() goa.Endpoint {
 	var (
 		encodeRequest  = EncodeSubmitRequest(c.encoder)
 		decodeResponse = DecodeSubmitResponse(c.decoder, c.RestoreResponseBody)

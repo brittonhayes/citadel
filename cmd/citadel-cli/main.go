@@ -9,7 +9,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/go-kit/kit/endpoint"
+	goa "goa.design/goa/v3/pkg"
 )
 
 func main() {
@@ -57,7 +57,7 @@ func main() {
 		host = u.Host
 	}
 	var (
-		endpoint endpoint.Endpoint
+		endpoint goa.Endpoint
 		payload  interface{}
 		err      error
 	)

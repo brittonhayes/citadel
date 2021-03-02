@@ -344,7 +344,7 @@ definitions:
       description:
         type: string
         description: Description of the vulnerability
-        example: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+        example: There is a possible out of bounds write due to a use after free.
       exploitable:
         type: boolean
         description: If the vulnerability is exploitable
@@ -368,7 +368,7 @@ definitions:
         example: CVE-2020-10
     example:
       cvss_score: 4.7
-      description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+      description: There is a possible out of bounds write due to a use after free.
       exploitable: false
       id: 12474090057829049257
       is_patchable: true
@@ -429,7 +429,7 @@ definitions:
       description:
         type: string
         description: Description of the vulnerability
-        example: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+        example: There is a possible out of bounds write due to a use after free.
       exploitable:
         type: boolean
         description: If the vulnerability is exploitable
@@ -453,7 +453,7 @@ definitions:
         example: CVE-2020-10
     example:
       cvss_score: 4.7
-      description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+      description: There is a possible out of bounds write due to a use after free.
       exploitable: false
       id: 16284005953265787933
       is_patchable: false

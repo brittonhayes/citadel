@@ -4,6 +4,7 @@ import (
 	"context"
 	"flag"
 	"fmt"
+	"log"
 	"net"
 	"net/url"
 	"os"
@@ -14,7 +15,6 @@ import (
 	citadel "github.com/brittonhayes/citadel"
 	incidents "github.com/brittonhayes/citadel/gen/incidents"
 	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
-	"github.com/go-kit/kit/log"
 )
 
 func main() {
@@ -29,14 +29,12 @@ func main() {
 	)
 	flag.Parse()
 
-	// Setup gokit logger.
+	// Setup logger. Replace logger with your own log package of choice.
 	var (
-		logger log.Logger
+		logger *log.Logger
 	)
 	{
-		logger = log.NewLogfmtLogger(os.Stderr)
-		logger = log.With(logger, "ts", log.DefaultTimestampUTC)
-		logger = log.With(logger, "caller", log.DefaultCaller)
+		logger = log.New(os.Stderr, "[citadel] ", log.Ltime)
 	}
 
 	// Initialize the services.
@@ -109,11 +107,11 @@ func main() {
 	}
 
 	// Wait for signal.
-	logger.Log("info", fmt.Sprintf("exiting (%v)", <-errc))
+	logger.Printf("exiting (%v)", <-errc)
 
 	// Send cancellation signal to the goroutines.
 	cancel()
 
 	wg.Wait()
-	logger.Log("info", fmt.Sprintf("exited"))
+	logger.Println("exited")
 }

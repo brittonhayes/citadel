@@ -5,11 +5,11 @@ import (
 	"time"
 
 	cli "github.com/brittonhayes/citadel/gen/http/cli/citadel"
-	"github.com/go-kit/kit/endpoint"
 	goahttp "goa.design/goa/v3/http"
+	goa "goa.design/goa/v3/pkg"
 )
 
-func doHTTP(scheme, host string, timeout int, debug bool) (endpoint.Endpoint, interface{}, error) {
+func doHTTP(scheme, host string, timeout int, debug bool) (goa.Endpoint, interface{}, error) {
 	var (
 		doer goahttp.Doer
 	)

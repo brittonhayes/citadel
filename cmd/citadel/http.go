@@ -2,21 +2,17 @@ package main
 
 import (
 	"context"
-	"fmt"
+	"log"
 	"net/http"
 	"net/url"
+	"os"
 	"sync"
 	"time"
 
-	incidentskitsvr "github.com/brittonhayes/citadel/gen/http/incidents/kitserver"
 	incidentssvr "github.com/brittonhayes/citadel/gen/http/incidents/server"
-	vulnerabilitieskitsvr "github.com/brittonhayes/citadel/gen/http/vulnerabilities/kitserver"
 	vulnerabilitiessvr "github.com/brittonhayes/citadel/gen/http/vulnerabilities/server"
 	incidents "github.com/brittonhayes/citadel/gen/incidents"
 	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
-	"github.com/go-kit/kit/endpoint"
-	"github.com/go-kit/kit/log"
-	kithttp "github.com/go-kit/kit/transport/http"
 	goahttp "goa.design/goa/v3/http"
 	httpmdlwr "goa.design/goa/v3/http/middleware"
 	"goa.design/goa/v3/middleware"
@@ -24,7 +20,15 @@ import (
 
 // handleHTTPServer starts configures and starts a HTTP server on the given
 // URL. It shuts down the server if any error is received in the error channel.
-func handleHTTPServer(ctx context.Context, u *url.URL, vulnerabilitiesEndpoints *vulnerabilities.Endpoints, incidentsEndpoints *incidents.Endpoints, wg *sync.WaitGroup, errc chan error, logger log.Logger, debug bool) {
+func handleHTTPServer(ctx context.Context, u *url.URL, vulnerabilitiesEndpoints *vulnerabilities.Endpoints, incidentsEndpoints *incidents.Endpoints, wg *sync.WaitGroup, errc chan error, logger *log.Logger, debug bool) {
+
+	// Setup goa log adapter.
+	var (
+		adapter middleware.Logger
+	)
+	{
+		adapter = middleware.NewLogger(logger)
+	}
 
 	// Provide the transport specific request decoder and response encoder.
 	// The goa http package has built-in support for JSON, XML and gob.
@@ -47,59 +51,30 @@ func handleHTTPServer(ctx context.Context, u *url.URL, vulnerabilitiesEndpoints 
 	// the service input and output data structures to HTTP requests and
 	// responses.
 	var (
-		vulnerabilitiesFindHandler   *kithttp.Server
-		vulnerabilitiesListHandler   *kithttp.Server
-		vulnerabilitiesSubmitHandler *kithttp.Server
-		vulnerabilitiesServer        *vulnerabilitiessvr.Server
-		incidentsFindHandler         *kithttp.Server
-		incidentsListAllHandler      *kithttp.Server
-		incidentsServer              *incidentssvr.Server
+		vulnerabilitiesServer *vulnerabilitiessvr.Server
+		incidentsServer       *incidentssvr.Server
 	)
 	{
 		eh := errorHandler(logger)
-		vulnerabilitiesFindHandler = kithttp.NewServer(
-			endpoint.Endpoint(vulnerabilitiesEndpoints.Find),
-			vulnerabilitieskitsvr.DecodeFindRequest(mux, dec),
-			vulnerabilitieskitsvr.EncodeFindResponse(enc),
-			kithttp.ServerErrorEncoder(vulnerabilitieskitsvr.EncodeFindError(enc, nil)),
-		)
-		vulnerabilitiesListHandler = kithttp.NewServer(
-			endpoint.Endpoint(vulnerabilitiesEndpoints.List),
-			vulnerabilitieskitsvr.DecodeListRequest(mux, dec),
-			vulnerabilitieskitsvr.EncodeListResponse(enc),
-		)
-		vulnerabilitiesSubmitHandler = kithttp.NewServer(
-			endpoint.Endpoint(vulnerabilitiesEndpoints.Submit),
-			vulnerabilitieskitsvr.DecodeSubmitRequest(mux, dec),
-			vulnerabilitieskitsvr.EncodeSubmitResponse(enc),
-			kithttp.ServerErrorEncoder(vulnerabilitieskitsvr.EncodeSubmitError(enc, nil)),
-		)
 		vulnerabilitiesServer = vulnerabilitiessvr.New(vulnerabilitiesEndpoints, mux, dec, enc, eh, nil)
-		incidentsFindHandler = kithttp.NewServer(
-			endpoint.Endpoint(incidentsEndpoints.Find),
-			incidentskitsvr.DecodeFindRequest(mux, dec),
-			incidentskitsvr.EncodeFindResponse(enc),
-		)
-		incidentsListAllHandler = kithttp.NewServer(
-			endpoint.Endpoint(incidentsEndpoints.ListAll),
-			incidentskitsvr.DecodeListAllRequest(mux, dec),
-			incidentskitsvr.EncodeListAllResponse(enc),
-		)
 		incidentsServer = incidentssvr.New(incidentsEndpoints, mux, dec, enc, eh, nil)
+		if debug {
+			servers := goahttp.Servers{
+				vulnerabilitiesServer,
+				incidentsServer,
+			}
+			servers.Use(httpmdlwr.Debug(mux, os.Stdout))
+		}
 	}
-
 	// Configure the mux.
-	vulnerabilitieskitsvr.MountFindHandler(mux, vulnerabilitiesFindHandler)
-	vulnerabilitieskitsvr.MountListHandler(mux, vulnerabilitiesListHandler)
-	vulnerabilitieskitsvr.MountSubmitHandler(mux, vulnerabilitiesSubmitHandler)
-	incidentskitsvr.MountFindHandler(mux, incidentsFindHandler)
-	incidentskitsvr.MountListAllHandler(mux, incidentsListAllHandler)
+	vulnerabilitiessvr.Mount(mux, vulnerabilitiesServer)
+	incidentssvr.Mount(mux, incidentsServer)
 
 	// Wrap the multiplexer with additional middlewares. Middlewares mounted
 	// here apply to all the service endpoints.
 	var handler http.Handler = mux
 	{
-		handler = httpmdlwr.Log(logger)(handler)
+		handler = httpmdlwr.Log(adapter)(handler)
 		handler = httpmdlwr.RequestID()(handler)
 	}
 
@@ -107,10 +82,10 @@ func handleHTTPServer(ctx context.Context, u *url.URL, vulnerabilitiesEndpoints 
 	// configure the server as required by your service.
 	srv := &http.Server{Addr: u.Host, Handler: handler}
 	for _, m := range vulnerabilitiesServer.Mounts {
-		logger.Log("info", fmt.Sprintf("HTTP %q mounted on %s %s", m.Method, m.Verb, m.Pattern))
+		logger.Printf("HTTP %q mounted on %s %s", m.Method, m.Verb, m.Pattern)
 	}
 	for _, m := range incidentsServer.Mounts {
-		logger.Log("info", fmt.Sprintf("HTTP %q mounted on %s %s", m.Method, m.Verb, m.Pattern))
+		logger.Printf("HTTP %q mounted on %s %s", m.Method, m.Verb, m.Pattern)
 	}
 
 	(*wg).Add(1)
@@ -119,12 +94,12 @@ func handleHTTPServer(ctx context.Context, u *url.URL, vulnerabilitiesEndpoints 
 
 		// Start HTTP server in a separate goroutine.
 		go func() {
-			logger.Log("info", fmt.Sprintf("HTTP server listening on %q", u.Host))
+			logger.Printf("HTTP server listening on %q", u.Host)
 			errc <- srv.ListenAndServe()
 		}()
 
 		<-ctx.Done()
-		logger.Log("info", fmt.Sprintf("shutting down HTTP server at %q", u.Host))
+		logger.Printf("shutting down HTTP server at %q", u.Host)
 
 		// Shutdown gracefully with a 30s timeout.
 		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
@@ -137,10 +112,10 @@ func handleHTTPServer(ctx context.Context, u *url.URL, vulnerabilitiesEndpoints 
 // errorHandler returns a function that writes and logs the given error.
 // The function also writes and logs the error unique ID so that it's possible
 // to correlate.
-func errorHandler(logger log.Logger) func(context.Context, http.ResponseWriter, error) {
+func errorHandler(logger *log.Logger) func(context.Context, http.ResponseWriter, error) {
 	return func(ctx context.Context, w http.ResponseWriter, err error) {
 		id := ctx.Value(middleware.RequestIDKey).(string)
 		_, _ = w.Write([]byte("[" + id + "] encoding: " + err.Error()))
-		logger.Log("info", fmt.Sprintf("[%s] ERROR: %s", id, err.Error()))
+		logger.Printf("[%s] ERROR: %s", id, err.Error())
 	}
 }

@@ -18,7 +18,7 @@ import "github.com/brittonhayes/citadel/gen/http/incidents/server"
 - [func MountFindHandler(mux goahttp.Muxer, h http.Handler)](<#func-mountfindhandler>)
 - [func MountListAllHandler(mux goahttp.Muxer, h http.Handler)](<#func-mountlistallhandler>)
 - [func NewFindHandler(
-    endpoint endpoint.Endpoint,
+    endpoint goa.Endpoint,
     mux goahttp.Muxer,
     decoder func(*http.Request) goahttp.Decoder,
     encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -27,7 +27,7 @@ import "github.com/brittonhayes/citadel/gen/http/incidents/server"
 ) http.Handler](<#func-newfindhandler>)
 - [func NewFindPayload(id uint64) *incidents.FindPayload](<#func-newfindpayload>)
 - [func NewListAllHandler(
-    endpoint endpoint.Endpoint,
+    endpoint goa.Endpoint,
     mux goahttp.Muxer,
     decoder func(*http.Request) goahttp.Decoder,
     encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -55,7 +55,7 @@ import "github.com/brittonhayes/citadel/gen/http/incidents/server"
   - [func (s *Server) Use(m func(http.Handler) http.Handler)](<#func-server-use>)
 
 
-## func DecodeFindRequest
+## func [DecodeFindRequest](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/encode_decode.go#L34>)
 
 ```go
 func DecodeFindRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.Decoder) func(*http.Request) (interface{}, error)
@@ -63,7 +63,7 @@ func DecodeFindRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.De
 
 DecodeFindRequest returns a decoder for requests sent to the incidents find endpoint\.
 
-## func DecodeListAllRequest
+## func [DecodeListAllRequest](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/encode_decode.go#L73>)
 
 ```go
 func DecodeListAllRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.Decoder) func(*http.Request) (interface{}, error)
@@ -71,7 +71,7 @@ func DecodeListAllRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp
 
 DecodeListAllRequest returns a decoder for requests sent to the incidents list all endpoint\.
 
-## func EncodeFindResponse
+## func [EncodeFindResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/encode_decode.go#L22>)
 
 ```go
 func EncodeFindResponse(encoder func(context.Context, http.ResponseWriter) goahttp.Encoder) func(context.Context, http.ResponseWriter, interface{}) error
@@ -79,7 +79,7 @@ func EncodeFindResponse(encoder func(context.Context, http.ResponseWriter) goaht
 
 EncodeFindResponse returns an encoder for responses returned by the incidents find endpoint\.
 
-## func EncodeListAllResponse
+## func [EncodeListAllResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/encode_decode.go#L61>)
 
 ```go
 func EncodeListAllResponse(encoder func(context.Context, http.ResponseWriter) goahttp.Encoder) func(context.Context, http.ResponseWriter, interface{}) error
@@ -87,7 +87,7 @@ func EncodeListAllResponse(encoder func(context.Context, http.ResponseWriter) go
 
 EncodeListAllResponse returns an encoder for responses returned by the incidents list all endpoint\.
 
-## func FindIncidentsPath
+## func [FindIncidentsPath](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/paths.go#L15>)
 
 ```go
 func FindIncidentsPath(id uint64) string
@@ -95,7 +95,7 @@ func FindIncidentsPath(id uint64) string
 
 FindIncidentsPath returns the URL path to the incidents service find HTTP endpoint\.
 
-## func ListAllIncidentsPath
+## func [ListAllIncidentsPath](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/paths.go#L20>)
 
 ```go
 func ListAllIncidentsPath() string
@@ -103,7 +103,7 @@ func ListAllIncidentsPath() string
 
 ListAllIncidentsPath returns the URL path to the incidents service list all HTTP endpoint\.
 
-## func Mount
+## func [Mount](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L77>)
 
 ```go
 func Mount(mux goahttp.Muxer, h *Server)
@@ -111,7 +111,7 @@ func Mount(mux goahttp.Muxer, h *Server)
 
 Mount configures the mux to serve the incidents endpoints\.
 
-## func MountFindHandler
+## func [MountFindHandler](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L84>)
 
 ```go
 func MountFindHandler(mux goahttp.Muxer, h http.Handler)
@@ -119,7 +119,7 @@ func MountFindHandler(mux goahttp.Muxer, h http.Handler)
 
 MountFindHandler configures the mux to serve the "incidents" service "find" endpoint\.
 
-## func MountListAllHandler
+## func [MountListAllHandler](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L135>)
 
 ```go
 func MountListAllHandler(mux goahttp.Muxer, h http.Handler)
@@ -127,11 +127,11 @@ func MountListAllHandler(mux goahttp.Muxer, h http.Handler)
 
 MountListAllHandler configures the mux to serve the "incidents" service "list all" endpoint\.
 
-## func NewFindHandler
+## func [NewFindHandler](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L96-L103>)
 
 ```go
 func NewFindHandler(
-    endpoint endpoint.Endpoint,
+    endpoint goa.Endpoint,
     mux goahttp.Muxer,
     decoder func(*http.Request) goahttp.Decoder,
     encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -142,7 +142,7 @@ func NewFindHandler(
 
 NewFindHandler creates a HTTP handler which loads the HTTP request and calls the "incidents" service "find" endpoint\.
 
-## func NewFindPayload
+## func [NewFindPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/types.go#L121>)
 
 ```go
 func NewFindPayload(id uint64) *incidents.FindPayload
@@ -150,11 +150,11 @@ func NewFindPayload(id uint64) *incidents.FindPayload
 
 NewFindPayload builds a incidents service find endpoint payload\.
 
-## func NewListAllHandler
+## func [NewListAllHandler](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L147-L154>)
 
 ```go
 func NewListAllHandler(
-    endpoint endpoint.Endpoint,
+    endpoint goa.Endpoint,
     mux goahttp.Muxer,
     decoder func(*http.Request) goahttp.Decoder,
     encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -165,7 +165,7 @@ func NewListAllHandler(
 
 NewListAllHandler creates a HTTP handler which loads the HTTP request and calls the "incidents" service "list all" endpoint\.
 
-## func NewListAllLimitPayload
+## func [NewListAllLimitPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/types.go#L129>)
 
 ```go
 func NewListAllLimitPayload(limit *int32) *incidents.LimitPayload
@@ -173,7 +173,7 @@ func NewListAllLimitPayload(limit *int32) *incidents.LimitPayload
 
 NewListAllLimitPayload builds a incidents service list all endpoint payload\.
 
-## type ErrorNamer
+## type [ErrorNamer](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L28-L30>)
 
 ErrorNamer is an interface implemented by generated error structs that exposes the name of the error as defined in the design\.
 
@@ -183,7 +183,7 @@ type ErrorNamer interface {
 }
 ```
 
-## type FindResponseBody
+## type [FindResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/types.go#L16-L45>)
 
 FindResponseBody is the type of the "incidents" service "find" endpoint HTTP response body\.
 
@@ -220,7 +220,7 @@ type FindResponseBody struct {
 }
 ```
 
-### func NewFindResponseBody
+### func [NewFindResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/types.go#L85>)
 
 ```go
 func NewFindResponseBody(res *incidents.Incident) *FindResponseBody
@@ -228,7 +228,7 @@ func NewFindResponseBody(res *incidents.Incident) *FindResponseBody
 
 NewFindResponseBody builds the HTTP response body from the result of the "find" endpoint of the "incidents" service\.
 
-## type IncidentResponse
+## type [IncidentResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/types.go#L52-L81>)
 
 IncidentResponse is used to define fields on response body types\.
 
@@ -265,7 +265,7 @@ type IncidentResponse struct {
 }
 ```
 
-## type ListAllResponseBody
+## type [ListAllResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/types.go#L49>)
 
 ListAllResponseBody is the type of the "incidents" service "list all" endpoint HTTP response body\.
 
@@ -273,7 +273,7 @@ ListAllResponseBody is the type of the "incidents" service "list all" endpoint H
 type ListAllResponseBody []*IncidentResponse
 ```
 
-### func NewListAllResponseBody
+### func [NewListAllResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/types.go#L112>)
 
 ```go
 func NewListAllResponseBody(res []*incidents.Incident) ListAllResponseBody
@@ -281,7 +281,7 @@ func NewListAllResponseBody(res []*incidents.Incident) ListAllResponseBody
 
 NewListAllResponseBody builds the HTTP response body from the result of the "list all" endpoint of the "incidents" service\.
 
-## type MountPoint
+## type [MountPoint](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L33-L41>)
 
 MountPoint holds information about the mounted endpoints\.
 
@@ -297,7 +297,7 @@ type MountPoint struct {
 }
 ```
 
-## type Server
+## type [Server](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L20-L24>)
 
 Server lists the incidents service endpoint HTTP handlers\.
 
@@ -309,7 +309,7 @@ type Server struct {
 }
 ```
 
-### func New
+### func [New](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L49-L56>)
 
 ```go
 func New(
@@ -324,7 +324,7 @@ func New(
 
 New instantiates HTTP handlers for all the incidents service endpoints using the provided encoder and decoder\. The handlers are mounted on the given mux using the HTTP verb and path defined in the design\. errhandler is called whenever a response fails to be encoded\. formatter is used to format errors returned by the service methods prior to encoding\. Both errhandler and formatter are optional and can be nil\.
 
-### func \(\*Server\) Service
+### func \(\*Server\) [Service](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L68>)
 
 ```go
 func (s *Server) Service() string
@@ -332,7 +332,7 @@ func (s *Server) Service() string
 
 Service returns the name of the service served\.
 
-### func \(\*Server\) Use
+### func \(\*Server\) [Use](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/server/server.go#L71>)
 
 ```go
 func (s *Server) Use(m func(http.Handler) http.Handler)

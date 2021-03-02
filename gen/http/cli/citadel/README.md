@@ -14,12 +14,12 @@ import "github.com/brittonhayes/citadel/gen/http/cli/citadel"
     enc func(*http.Request) goahttp.Encoder,
     dec func(*http.Response) goahttp.Decoder,
     restore bool,
-) (endpoint.Endpoint, interface{}, error)](<#func-parseendpoint>)
+) (goa.Endpoint, interface{}, error)](<#func-parseendpoint>)
 - [func UsageCommands() string](<#func-usagecommands>)
 - [func UsageExamples() string](<#func-usageexamples>)
 
 
-## func ParseEndpoint
+## func [ParseEndpoint](<https://github.com/brittonhayes/citadel/blob/main/gen/http/cli/citadel/cli.go#L41-L47>)
 
 ```go
 func ParseEndpoint(
@@ -28,12 +28,12 @@ func ParseEndpoint(
     enc func(*http.Request) goahttp.Encoder,
     dec func(*http.Response) goahttp.Decoder,
     restore bool,
-) (endpoint.Endpoint, interface{}, error)
+) (goa.Endpoint, interface{}, error)
 ```
 
 ParseEndpoint returns the endpoint and payload as specified on the command line\.
 
-## func UsageCommands
+## func [UsageCommands](<https://github.com/brittonhayes/citadel/blob/main/gen/http/cli/citadel/cli.go#L26>)
 
 ```go
 func UsageCommands() string
@@ -45,7 +45,7 @@ func UsageCommands() string
 command (subcommand1|subcommand2|...)
 ```
 
-## func UsageExamples
+## func [UsageExamples](<https://github.com/brittonhayes/citadel/blob/main/gen/http/cli/citadel/cli.go#L33>)
 
 ```go
 func UsageExamples() string

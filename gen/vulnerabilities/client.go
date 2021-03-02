@@ -10,18 +10,18 @@ package vulnerabilities
 import (
 	"context"
 
-	"github.com/go-kit/kit/endpoint"
+	goa "goa.design/goa/v3/pkg"
 )
 
 // Client is the "vulnerabilities" service client.
 type Client struct {
-	FindEndpoint   endpoint.Endpoint
-	ListEndpoint   endpoint.Endpoint
-	SubmitEndpoint endpoint.Endpoint
+	FindEndpoint   goa.Endpoint
+	ListEndpoint   goa.Endpoint
+	SubmitEndpoint goa.Endpoint
 }
 
 // NewClient initializes a "vulnerabilities" service client given the endpoints.
-func NewClient(find, list, submit endpoint.Endpoint) *Client {
+func NewClient(find, list, submit goa.Endpoint) *Client {
 	return &Client{
 		FindEndpoint:   find,
 		ListEndpoint:   list,

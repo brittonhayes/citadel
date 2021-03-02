@@ -10,14 +10,14 @@ package vulnerabilities
 import (
 	"context"
 
-	"github.com/go-kit/kit/endpoint"
+	goa "goa.design/goa/v3/pkg"
 )
 
 // Endpoints wraps the "vulnerabilities" service endpoints.
 type Endpoints struct {
-	Find   endpoint.Endpoint
-	List   endpoint.Endpoint
-	Submit endpoint.Endpoint
+	Find   goa.Endpoint
+	List   goa.Endpoint
+	Submit goa.Endpoint
 }
 
 // NewEndpoints wraps the methods of the "vulnerabilities" service with
@@ -32,7 +32,7 @@ func NewEndpoints(s Service) *Endpoints {
 
 // Use applies the given middleware to all the "vulnerabilities" service
 // endpoints.
-func (e *Endpoints) Use(m func(endpoint.Endpoint) endpoint.Endpoint) {
+func (e *Endpoints) Use(m func(goa.Endpoint) goa.Endpoint) {
 	e.Find = m(e.Find)
 	e.List = m(e.List)
 	e.Submit = m(e.Submit)
@@ -40,7 +40,7 @@ func (e *Endpoints) Use(m func(endpoint.Endpoint) endpoint.Endpoint) {
 
 // NewFindEndpoint returns an endpoint function that calls the method "find" of
 // service "vulnerabilities".
-func NewFindEndpoint(s Service) endpoint.Endpoint {
+func NewFindEndpoint(s Service) goa.Endpoint {
 	return func(ctx context.Context, req interface{}) (interface{}, error) {
 		p := req.(*FindPayload)
 		return s.Find(ctx, p)
@@ -49,7 +49,7 @@ func NewFindEndpoint(s Service) endpoint.Endpoint {
 
 // NewListEndpoint returns an endpoint function that calls the method "list" of
 // service "vulnerabilities".
-func NewListEndpoint(s Service) endpoint.Endpoint {
+func NewListEndpoint(s Service) goa.Endpoint {
 	return func(ctx context.Context, req interface{}) (interface{}, error) {
 		p := req.(*LimitPayload)
 		return s.List(ctx, p)
@@ -58,7 +58,7 @@ func NewListEndpoint(s Service) endpoint.Endpoint {
 
 // NewSubmitEndpoint returns an endpoint function that calls the method
 // "submit" of service "vulnerabilities".
-func NewSubmitEndpoint(s Service) endpoint.Endpoint {
+func NewSubmitEndpoint(s Service) goa.Endpoint {
 	return func(ctx context.Context, req interface{}) (interface{}, error) {
 		p := req.(*SubmitPayload)
 		return nil, s.Submit(ctx, p)

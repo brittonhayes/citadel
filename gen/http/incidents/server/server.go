@@ -12,7 +12,6 @@ import (
 	"net/http"
 
 	incidents "github.com/brittonhayes/citadel/gen/incidents"
-	"github.com/go-kit/kit/endpoint"
 	goahttp "goa.design/goa/v3/http"
 	goa "goa.design/goa/v3/pkg"
 )
@@ -95,7 +94,7 @@ func MountFindHandler(mux goahttp.Muxer, h http.Handler) {
 // NewFindHandler creates a HTTP handler which loads the HTTP request and calls
 // the "incidents" service "find" endpoint.
 func NewFindHandler(
-	endpoint endpoint.Endpoint,
+	endpoint goa.Endpoint,
 	mux goahttp.Muxer,
 	decoder func(*http.Request) goahttp.Decoder,
 	encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -146,7 +145,7 @@ func MountListAllHandler(mux goahttp.Muxer, h http.Handler) {
 // NewListAllHandler creates a HTTP handler which loads the HTTP request and
 // calls the "incidents" service "list all" endpoint.
 func NewListAllHandler(
-	endpoint endpoint.Endpoint,
+	endpoint goa.Endpoint,
 	mux goahttp.Muxer,
 	decoder func(*http.Request) goahttp.Decoder,
 	encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
