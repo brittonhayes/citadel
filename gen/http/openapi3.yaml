@@ -1,15 +1,12 @@
 openapi: 3.0.3
 info:
-  title: Citadel service
+  title: Citadel API
   description: HTTP service for working with Security Operations Center resources
   version: "1.0"
 servers:
-- url: http://localhost:8000/v1/citadel
+- url: http://localhost:8000/citadel/dev/vulnerabilities
   description: citadel contains the vulnerability, risk, incident, and intel services.
-  variables:
-    version:
-      default: v1
-- url: https://localhost:8000/v1/citadel
+- url: http://localhost:8000/citadel/v1/vulnerabilities
   description: citadel contains the vulnerability, risk, incident, and intel services.
   variables:
     version:
@@ -29,10 +26,10 @@ paths:
         schema:
           type: integer
           description: Limit the number of results
-          example: 864
+          example: 364
           minimum: 0
-          maximum: 1000
-        example: 750
+          maximum: 500
+        example: 250
       responses:
         "200":
           description: OK response.
@@ -170,6 +167,15 @@ paths:
                 summary: Ratione porro esse suscipit et.
                 title: Totam quia.
                 updated_at: "1972-11-06T07:23:40Z"
+  /incidents/openapi.json:
+    get:
+      tags:
+      - incidents
+      summary: Download ./gen/http/openapi3.json
+      operationId: incidents#/incidents/openapi.json
+      responses:
+        "200":
+          description: File downloaded
   /vulnerabilities:
     get:
       tags:
@@ -185,9 +191,9 @@ paths:
         schema:
           type: integer
           description: Limit the number of results
-          example: 950
+          example: 450
           minimum: 0
-          maximum: 1000
+          maximum: 500
         example: 374
       responses:
         "200":
@@ -308,6 +314,15 @@ paths:
               schema:
                 $ref: '#/components/schemas/NoMatch'
               example: Omnis molestiae.
+  /vulnerabilities/openapi.json:
+    get:
+      tags:
+      - vulnerabilities
+      summary: Download ./gen/http/openapi3.json
+      operationId: vulnerabilities#/vulnerabilities/openapi.json
+      responses:
+        "200":
+          description: File downloaded
 components:
   schemas:
     Incident:

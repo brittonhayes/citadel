@@ -34,6 +34,8 @@ var _ = Service("incidents", func() {
 			})
 		})
 	})
+
+	Files("/openapi.json", "./gen/http/openapi3.json")
 })
 
 var Incident = Type("Incident", func() {

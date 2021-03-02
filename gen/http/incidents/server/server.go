@@ -58,6 +58,7 @@ func New(
 		Mounts: []*MountPoint{
 			{"Find", "GET", "/incidents/{id}"},
 			{"ListAll", "GET", "/incidents"},
+			{"./gen/http/openapi3.json", "GET", "/incidents/openapi.json"},
 		},
 		Find:    NewFindHandler(e.Find, mux, decoder, encoder, errhandler, formatter),
 		ListAll: NewListAllHandler(e.ListAll, mux, decoder, encoder, errhandler, formatter),
@@ -77,6 +78,9 @@ func (s *Server) Use(m func(http.Handler) http.Handler) {
 func Mount(mux goahttp.Muxer, h *Server) {
 	MountFindHandler(mux, h.Find)
 	MountListAllHandler(mux, h.ListAll)
+	MountGenHTTPOpenapi3JSON(mux, http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./gen/http/openapi3.json")
+	}))
 }
 
 // MountFindHandler configures the mux to serve the "incidents" service "find"
@@ -179,4 +183,10 @@ func NewListAllHandler(
 			errhandler(ctx, w, err)
 		}
 	})
+}
+
+// MountGenHTTPOpenapi3JSON configures the mux to serve GET request made to
+// "/incidents/openapi.json".
+func MountGenHTTPOpenapi3JSON(mux goahttp.Muxer, h http.Handler) {
+	mux.Handle("GET", "/incidents/openapi.json", h.ServeHTTP)
 }

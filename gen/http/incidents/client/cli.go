@@ -52,8 +52,8 @@ func BuildListAllPayload(incidentsListAllLimit string) (*incidents.LimitPayload,
 				}
 			}
 			if limit != nil {
-				if *limit > 1000 {
-					err = goa.MergeErrors(err, goa.InvalidRangeError("limit", *limit, 1000, false))
+				if *limit > 500 {
+					err = goa.MergeErrors(err, goa.InvalidRangeError("limit", *limit, 500, false))
 				}
 			}
 			if err != nil {

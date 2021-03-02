@@ -216,7 +216,7 @@ ListAll implements list all.
     -limit INT32: 
 
 Example:
-    `+os.Args[0]+` incidents list- all --limit 829
+    `+os.Args[0]+` incidents list- all --limit 329
 `, os.Args[0])
 }
 

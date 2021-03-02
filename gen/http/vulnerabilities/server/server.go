@@ -60,6 +60,7 @@ func New(
 			{"Find", "GET", "/vulnerabilities/{id}"},
 			{"List", "GET", "/vulnerabilities"},
 			{"Submit", "POST", "/vulnerabilities"},
+			{"./gen/http/openapi3.json", "GET", "/vulnerabilities/openapi.json"},
 		},
 		Find:   NewFindHandler(e.Find, mux, decoder, encoder, errhandler, formatter),
 		List:   NewListHandler(e.List, mux, decoder, encoder, errhandler, formatter),
@@ -82,6 +83,9 @@ func Mount(mux goahttp.Muxer, h *Server) {
 	MountFindHandler(mux, h.Find)
 	MountListHandler(mux, h.List)
 	MountSubmitHandler(mux, h.Submit)
+	MountGenHTTPOpenapi3JSON(mux, http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		http.ServeFile(w, r, "./gen/http/openapi3.json")
+	}))
 }
 
 // MountFindHandler configures the mux to serve the "vulnerabilities" service
@@ -235,4 +239,10 @@ func NewSubmitHandler(
 			errhandler(ctx, w, err)
 		}
 	})
+}
+
+// MountGenHTTPOpenapi3JSON configures the mux to serve GET request made to
+// "/vulnerabilities/openapi.json".
+func MountGenHTTPOpenapi3JSON(mux goahttp.Muxer, h http.Handler) {
+	mux.Handle("GET", "/vulnerabilities/openapi.json", h.ServeHTTP)
 }

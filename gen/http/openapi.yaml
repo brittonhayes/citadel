@@ -1,6 +1,6 @@
 swagger: "2.0"
 info:
-  title: Citadel service
+  title: Citadel API
   description: HTTP service for working with Security Operations Center resources
   version: ""
 host: localhost:8000
@@ -25,7 +25,7 @@ paths:
         description: Limit the number of results
         required: false
         type: integer
-        maximum: 1000
+        maximum: 500
         minimum: 0
       responses:
         "200":
@@ -55,6 +55,19 @@ paths:
             $ref: '#/definitions/IncidentsFindResponseBody'
       schemes:
       - http
+  /incidents/openapi.json:
+    get:
+      tags:
+      - incidents
+      summary: Download ./gen/http/openapi3.json
+      operationId: incidents#/incidents/openapi.json
+      responses:
+        "200":
+          description: File downloaded
+          schema:
+            type: file
+      schemes:
+      - http
   /vulnerabilities:
     get:
       tags:
@@ -68,7 +81,7 @@ paths:
         description: Limit the number of results
         required: false
         type: integer
-        maximum: 1000
+        maximum: 500
         minimum: 0
       responses:
         "200":
@@ -122,6 +135,19 @@ paths:
           description: Not Found response.
           schema:
             $ref: '#/definitions/VulnerabilitiesFindNoMatchResponseBody'
+      schemes:
+      - http
+  /vulnerabilities/openapi.json:
+    get:
+      tags:
+      - vulnerabilities
+      summary: Download ./gen/http/openapi3.json
+      operationId: vulnerabilities#/vulnerabilities/openapi.json
+      responses:
+        "200":
+          description: File downloaded
+          schema:
+            type: file
       schemes:
       - http
 definitions:
