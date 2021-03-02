@@ -10,7 +10,6 @@
 *.dll
 *.so
 *.dylib
-dist
 bin
 
 # Test binary, built with `go test -c`
