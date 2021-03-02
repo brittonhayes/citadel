@@ -30,14 +30,14 @@ import "github.com/brittonhayes/citadel/gen/http/incidents/client"
 ) *Client](<#func-newclient>)
   - [func (c *Client) BuildFindRequest(ctx context.Context, v interface{}) (*http.Request, error)](<#func-client-buildfindrequest>)
   - [func (c *Client) BuildListAllRequest(ctx context.Context, v interface{}) (*http.Request, error)](<#func-client-buildlistallrequest>)
-  - [func (c *Client) Find() endpoint.Endpoint](<#func-client-find>)
-  - [func (c *Client) ListAll() endpoint.Endpoint](<#func-client-listall>)
+  - [func (c *Client) Find() goa.Endpoint](<#func-client-find>)
+  - [func (c *Client) ListAll() goa.Endpoint](<#func-client-listall>)
 - [type FindResponseBody](<#type-findresponsebody>)
 - [type IncidentResponse](<#type-incidentresponse>)
 - [type ListAllResponseBody](<#type-listallresponsebody>)
 
 
-## func BuildFindPayload
+## func [BuildFindPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/cli.go#L20>)
 
 ```go
 func BuildFindPayload(incidentsFindID string) (*incidents.FindPayload, error)
@@ -45,7 +45,7 @@ func BuildFindPayload(incidentsFindID string) (*incidents.FindPayload, error)
 
 BuildFindPayload builds the payload for the incidents find endpoint from CLI flags\.
 
-## func BuildListAllPayload
+## func [BuildListAllPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/cli.go#L37>)
 
 ```go
 func BuildListAllPayload(incidentsListAllLimit string) (*incidents.LimitPayload, error)
@@ -53,7 +53,7 @@ func BuildListAllPayload(incidentsListAllLimit string) (*incidents.LimitPayload,
 
 BuildListAllPayload builds the payload for the incidents list all endpoint from CLI flags\.
 
-## func DecodeFindResponse
+## func [DecodeFindResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/encode_decode.go#L51>)
 
 ```go
 func DecodeFindResponse(decoder func(*http.Response) goahttp.Decoder, restoreBody bool) func(*http.Response) (interface{}, error)
@@ -61,7 +61,7 @@ func DecodeFindResponse(decoder func(*http.Response) goahttp.Decoder, restoreBod
 
 DecodeFindResponse returns a decoder for responses returned by the incidents find endpoint\. restoreBody controls whether the response body should be restored after having been read\.
 
-## func DecodeListAllResponse
+## func [DecodeListAllResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/encode_decode.go#L123>)
 
 ```go
 func DecodeListAllResponse(decoder func(*http.Response) goahttp.Decoder, restoreBody bool) func(*http.Response) (interface{}, error)
@@ -69,7 +69,7 @@ func DecodeListAllResponse(decoder func(*http.Response) goahttp.Decoder, restore
 
 DecodeListAllResponse returns a decoder for responses returned by the incidents list all endpoint\. restoreBody controls whether the response body should be restored after having been read\.
 
-## func EncodeListAllRequest
+## func [EncodeListAllRequest](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/encode_decode.go#L105>)
 
 ```go
 func EncodeListAllRequest(encoder func(*http.Request) goahttp.Encoder) func(*http.Request, interface{}) error
@@ -77,7 +77,7 @@ func EncodeListAllRequest(encoder func(*http.Request) goahttp.Encoder) func(*htt
 
 EncodeListAllRequest returns an encoder for requests sent to the incidents list all server\.
 
-## func FindIncidentsPath
+## func [FindIncidentsPath](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/paths.go#L15>)
 
 ```go
 func FindIncidentsPath(id uint64) string
@@ -85,7 +85,7 @@ func FindIncidentsPath(id uint64) string
 
 FindIncidentsPath returns the URL path to the incidents service find HTTP endpoint\.
 
-## func ListAllIncidentsPath
+## func [ListAllIncidentsPath](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/paths.go#L20>)
 
 ```go
 func ListAllIncidentsPath() string
@@ -93,7 +93,7 @@ func ListAllIncidentsPath() string
 
 ListAllIncidentsPath returns the URL path to the incidents service list all HTTP endpoint\.
 
-## func NewFindIncidentOK
+## func [NewFindIncidentOK](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/types.go#L86>)
 
 ```go
 func NewFindIncidentOK(body *FindResponseBody) *incidents.Incident
@@ -101,7 +101,7 @@ func NewFindIncidentOK(body *FindResponseBody) *incidents.Incident
 
 NewFindIncidentOK builds a "incidents" service "find" endpoint result from a HTTP "OK" response\.
 
-## func NewListAllIncidentOK
+## func [NewListAllIncidentOK](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/types.go#L114>)
 
 ```go
 func NewListAllIncidentOK(body []*IncidentResponse) []*incidents.Incident
@@ -109,7 +109,7 @@ func NewListAllIncidentOK(body []*IncidentResponse) []*incidents.Incident
 
 NewListAllIncidentOK builds a "incidents" service "list all" endpoint result from a HTTP "OK" response\.
 
-## func ValidateFindResponseBody
+## func [ValidateFindResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/types.go#L123>)
 
 ```go
 func ValidateFindResponseBody(body *FindResponseBody) (err error)
@@ -117,7 +117,7 @@ func ValidateFindResponseBody(body *FindResponseBody) (err error)
 
 ValidateFindResponseBody runs the validations defined on FindResponseBody
 
-## func ValidateIncidentResponse
+## func [ValidateIncidentResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/types.go#L155>)
 
 ```go
 func ValidateIncidentResponse(body *IncidentResponse) (err error)
@@ -125,7 +125,7 @@ func ValidateIncidentResponse(body *IncidentResponse) (err error)
 
 ValidateIncidentResponse runs the validations defined on IncidentResponse
 
-## type Client
+## type [Client](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/client.go#L19-L35>)
 
 Client lists the incidents service endpoint HTTP clients\.
 
@@ -145,7 +145,7 @@ type Client struct {
 }
 ```
 
-### func NewClient
+### func [NewClient](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/client.go#L38-L45>)
 
 ```go
 func NewClient(
@@ -160,7 +160,7 @@ func NewClient(
 
 NewClient instantiates HTTP clients for all the incidents service servers\.
 
-### func \(\*Client\) BuildFindRequest
+### func \(\*Client\) [BuildFindRequest](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/encode_decode.go#L25>)
 
 ```go
 func (c *Client) BuildFindRequest(ctx context.Context, v interface{}) (*http.Request, error)
@@ -168,7 +168,7 @@ func (c *Client) BuildFindRequest(ctx context.Context, v interface{}) (*http.Req
 
 BuildFindRequest instantiates a HTTP request object with method and path set to call the "incidents" service "find" endpoint
 
-### func \(\*Client\) BuildListAllRequest
+### func \(\*Client\) [BuildListAllRequest](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/encode_decode.go#L90>)
 
 ```go
 func (c *Client) BuildListAllRequest(ctx context.Context, v interface{}) (*http.Request, error)
@@ -176,23 +176,23 @@ func (c *Client) BuildListAllRequest(ctx context.Context, v interface{}) (*http.
 
 BuildListAllRequest instantiates a HTTP request object with method and path set to call the "incidents" service "list all" endpoint
 
-### func \(\*Client\) Find
+### func \(\*Client\) [Find](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/client.go#L59>)
 
 ```go
-func (c *Client) Find() endpoint.Endpoint
+func (c *Client) Find() goa.Endpoint
 ```
 
 Find returns an endpoint that makes HTTP requests to the incidents service find server\.
 
-### func \(\*Client\) ListAll
+### func \(\*Client\) [ListAll](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/client.go#L78>)
 
 ```go
-func (c *Client) ListAll() endpoint.Endpoint
+func (c *Client) ListAll() goa.Endpoint
 ```
 
 ListAll returns an endpoint that makes HTTP requests to the incidents service list all server\.
 
-## type FindResponseBody
+## type [FindResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/types.go#L17-L46>)
 
 FindResponseBody is the type of the "incidents" service "find" endpoint HTTP response body\.
 
@@ -229,7 +229,7 @@ type FindResponseBody struct {
 }
 ```
 
-## type IncidentResponse
+## type [IncidentResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/types.go#L53-L82>)
 
 IncidentResponse is used to define fields on response body types\.
 
@@ -266,7 +266,7 @@ type IncidentResponse struct {
 }
 ```
 
-## type ListAllResponseBody
+## type [ListAllResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/incidents/client/types.go#L50>)
 
 ListAllResponseBody is the type of the "incidents" service "list all" endpoint HTTP response body\.
 

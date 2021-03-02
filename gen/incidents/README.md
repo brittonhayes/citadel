@@ -10,15 +10,15 @@ import "github.com/brittonhayes/citadel/gen/incidents"
 
 - [Constants](<#constants>)
 - [Variables](<#variables>)
-- [func NewFindEndpoint(s Service) endpoint.Endpoint](<#func-newfindendpoint>)
-- [func NewListAllEndpoint(s Service) endpoint.Endpoint](<#func-newlistallendpoint>)
+- [func NewFindEndpoint(s Service) goa.Endpoint](<#func-newfindendpoint>)
+- [func NewListAllEndpoint(s Service) goa.Endpoint](<#func-newlistallendpoint>)
 - [type Client](<#type-client>)
-  - [func NewClient(find, listAll endpoint.Endpoint) *Client](<#func-newclient>)
+  - [func NewClient(find, listAll goa.Endpoint) *Client](<#func-newclient>)
   - [func (c *Client) Find(ctx context.Context, p *FindPayload) (res *Incident, err error)](<#func-client-find>)
   - [func (c *Client) ListAll(ctx context.Context, p *LimitPayload) (res []*Incident, err error)](<#func-client-listall>)
 - [type Endpoints](<#type-endpoints>)
   - [func NewEndpoints(s Service) *Endpoints](<#func-newendpoints>)
-  - [func (e *Endpoints) Use(m func(endpoint.Endpoint) endpoint.Endpoint)](<#func-endpoints-use>)
+  - [func (e *Endpoints) Use(m func(goa.Endpoint) goa.Endpoint)](<#func-endpoints-use>)
 - [type FindPayload](<#type-findpayload>)
 - [type Incident](<#type-incident>)
 - [type LimitPayload](<#type-limitpayload>)
@@ -44,42 +44,42 @@ MethodNames lists the service method names as defined in the design\. These are 
 var MethodNames = [2]string{"find", "list all"}
 ```
 
-## func NewFindEndpoint
+## func [NewFindEndpoint](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/endpoints.go#L38>)
 
 ```go
-func NewFindEndpoint(s Service) endpoint.Endpoint
+func NewFindEndpoint(s Service) goa.Endpoint
 ```
 
 NewFindEndpoint returns an endpoint function that calls the method "find" of service "incidents"\.
 
-## func NewListAllEndpoint
+## func [NewListAllEndpoint](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/endpoints.go#L47>)
 
 ```go
-func NewListAllEndpoint(s Service) endpoint.Endpoint
+func NewListAllEndpoint(s Service) goa.Endpoint
 ```
 
 NewListAllEndpoint returns an endpoint function that calls the method "list all" of service "incidents"\.
 
-## type Client
+## type [Client](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/client.go#L17-L20>)
 
 Client is the "incidents" service client\.
 
 ```go
 type Client struct {
-    FindEndpoint    endpoint.Endpoint
-    ListAllEndpoint endpoint.Endpoint
+    FindEndpoint    goa.Endpoint
+    ListAllEndpoint goa.Endpoint
 }
 ```
 
-### func NewClient
+### func [NewClient](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/client.go#L23>)
 
 ```go
-func NewClient(find, listAll endpoint.Endpoint) *Client
+func NewClient(find, listAll goa.Endpoint) *Client
 ```
 
 NewClient initializes a "incidents" service client given the endpoints\.
 
-### func \(\*Client\) Find
+### func \(\*Client\) [Find](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/client.go#L34>)
 
 ```go
 func (c *Client) Find(ctx context.Context, p *FindPayload) (res *Incident, err error)
@@ -87,7 +87,7 @@ func (c *Client) Find(ctx context.Context, p *FindPayload) (res *Incident, err e
 
 Find calls the "find" endpoint of the "incidents" service\. Find may return the following errors: \- "no\_match" \(type NoMatch\) \- error: internal error
 
-### func \(\*Client\) ListAll
+### func \(\*Client\) [ListAll](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/client.go#L47>)
 
 ```go
 func (c *Client) ListAll(ctx context.Context, p *LimitPayload) (res []*Incident, err error)
@@ -95,18 +95,18 @@ func (c *Client) ListAll(ctx context.Context, p *LimitPayload) (res []*Incident,
 
 ListAll calls the "list all" endpoint of the "incidents" service\. ListAll may return the following errors: \- "no\_match" \(type NoMatch\) \- error: internal error
 
-## type Endpoints
+## type [Endpoints](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/endpoints.go#L17-L20>)
 
 Endpoints wraps the "incidents" service endpoints\.
 
 ```go
 type Endpoints struct {
-    Find    endpoint.Endpoint
-    ListAll endpoint.Endpoint
+    Find    goa.Endpoint
+    ListAll goa.Endpoint
 }
 ```
 
-### func NewEndpoints
+### func [NewEndpoints](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/endpoints.go#L23>)
 
 ```go
 func NewEndpoints(s Service) *Endpoints
@@ -114,15 +114,15 @@ func NewEndpoints(s Service) *Endpoints
 
 NewEndpoints wraps the methods of the "incidents" service with endpoints\.
 
-### func \(\*Endpoints\) Use
+### func \(\*Endpoints\) [Use](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/endpoints.go#L31>)
 
 ```go
-func (e *Endpoints) Use(m func(endpoint.Endpoint) endpoint.Endpoint)
+func (e *Endpoints) Use(m func(goa.Endpoint) goa.Endpoint)
 ```
 
 Use applies the given middleware to all the "incidents" service endpoints\.
 
-## type FindPayload
+## type [FindPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/service.go#L33-L36>)
 
 FindPayload is the payload type of the incidents service find method\.
 
@@ -133,7 +133,7 @@ type FindPayload struct {
 }
 ```
 
-## type Incident
+## type [Incident](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/service.go#L39-L68>)
 
 Incident is the result type of the incidents service find method\.
 
@@ -170,7 +170,7 @@ type Incident struct {
 }
 ```
 
-## type LimitPayload
+## type [LimitPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/service.go#L71-L74>)
 
 LimitPayload is the payload type of the incidents service list all method\.
 
@@ -181,7 +181,7 @@ type LimitPayload struct {
 }
 ```
 
-## type NoMatch
+## type [NoMatch](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/service.go#L77>)
 
 No incident matched given criteria
 
@@ -189,7 +189,7 @@ No incident matched given criteria
 type NoMatch string
 ```
 
-### func \(NoMatch\) Error
+### func \(NoMatch\) [Error](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/service.go#L80>)
 
 ```go
 func (e NoMatch) Error() string
@@ -197,7 +197,7 @@ func (e NoMatch) Error() string
 
 Error returns an error description\.
 
-### func \(NoMatch\) ErrorName
+### func \(NoMatch\) [ErrorName](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/service.go#L85>)
 
 ```go
 func (e NoMatch) ErrorName() string
@@ -205,7 +205,7 @@ func (e NoMatch) ErrorName() string
 
 ErrorName returns "no\_match"\.
 
-## type Service
+## type [Service](<https://github.com/brittonhayes/citadel/blob/main/gen/incidents/service.go#L15-L20>)
 
 The incident service handles the creation and querying of security incidents
 

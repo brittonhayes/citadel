@@ -10,17 +10,17 @@ package incidents
 import (
 	"context"
 
-	"github.com/go-kit/kit/endpoint"
+	goa "goa.design/goa/v3/pkg"
 )
 
 // Client is the "incidents" service client.
 type Client struct {
-	FindEndpoint    endpoint.Endpoint
-	ListAllEndpoint endpoint.Endpoint
+	FindEndpoint    goa.Endpoint
+	ListAllEndpoint goa.Endpoint
 }
 
 // NewClient initializes a "incidents" service client given the endpoints.
-func NewClient(find, listAll endpoint.Endpoint) *Client {
+func NewClient(find, listAll goa.Endpoint) *Client {
 	return &Client{
 		FindEndpoint:    find,
 		ListAllEndpoint: listAll,

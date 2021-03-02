@@ -15,8 +15,8 @@ import (
 
 	incidentsc "github.com/brittonhayes/citadel/gen/http/incidents/client"
 	vulnerabilitiesc "github.com/brittonhayes/citadel/gen/http/vulnerabilities/client"
-	"github.com/go-kit/kit/endpoint"
 	goahttp "goa.design/goa/v3/http"
+	goa "goa.design/goa/v3/pkg"
 )
 
 // UsageCommands returns the set of commands and sub-commands using the format
@@ -44,7 +44,7 @@ func ParseEndpoint(
 	enc func(*http.Request) goahttp.Encoder,
 	dec func(*http.Response) goahttp.Decoder,
 	restore bool,
-) (endpoint.Endpoint, interface{}, error) {
+) (goa.Endpoint, interface{}, error) {
 	var (
 		incidentsFlags = flag.NewFlagSet("incidents", flag.ContinueOnError)
 
@@ -146,7 +146,7 @@ func ParseEndpoint(
 
 	var (
 		data     interface{}
-		endpoint endpoint.Endpoint
+		endpoint goa.Endpoint
 		err      error
 	)
 	{

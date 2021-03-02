@@ -4,8 +4,16 @@ info:
   description: HTTP service for working with Security Operations Center resources
   version: "1.0"
 servers:
-- url: http://localhost:8000/citadel
+- url: http://localhost:8000/v1/citadel
   description: citadel contains the vulnerability, risk, incident, and intel services.
+  variables:
+    version:
+      default: v1
+- url: https://localhost:8000/v1/citadel
+  description: citadel contains the vulnerability, risk, incident, and intel services.
+  variables:
+    version:
+      default: v1
 paths:
   /incidents:
     get:
@@ -192,21 +200,21 @@ paths:
                   $ref: '#/components/schemas/Vulnerability'
                 example:
                 - cvss_score: 4.7
-                  description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+                  description: There is a possible out of bounds write due to a use after free.
                   exploitable: false
                   id: 3819473213214139262
                   is_patchable: false
                   is_upgradeable: false
                   title: CVE-2020-10
                 - cvss_score: 4.7
-                  description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+                  description: There is a possible out of bounds write due to a use after free.
                   exploitable: false
                   id: 3819473213214139262
                   is_patchable: false
                   is_upgradeable: false
                   title: CVE-2020-10
                 - cvss_score: 4.7
-                  description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+                  description: There is a possible out of bounds write due to a use after free.
                   exploitable: false
                   id: 3819473213214139262
                   is_patchable: false
@@ -214,21 +222,21 @@ paths:
                   title: CVE-2020-10
               example:
               - cvss_score: 4.7
-                description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+                description: There is a possible out of bounds write due to a use after free.
                 exploitable: false
                 id: 3819473213214139262
                 is_patchable: false
                 is_upgradeable: false
                 title: CVE-2020-10
               - cvss_score: 4.7
-                description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+                description: There is a possible out of bounds write due to a use after free.
                 exploitable: false
                 id: 3819473213214139262
                 is_patchable: false
                 is_upgradeable: false
                 title: CVE-2020-10
               - cvss_score: 4.7
-                description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+                description: There is a possible out of bounds write due to a use after free.
                 exploitable: false
                 id: 3819473213214139262
                 is_patchable: false
@@ -287,7 +295,7 @@ paths:
                 $ref: '#/components/schemas/Vulnerability'
               example:
                 cvss_score: 4.7
-                description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+                description: There is a possible out of bounds write due to a use after free.
                 exploitable: true
                 id: 11159415604719970017
                 is_patchable: true
@@ -451,7 +459,7 @@ components:
         description:
           type: string
           description: Description of the vulnerability
-          example: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+          example: There is a possible out of bounds write due to a use after free.
         exploitable:
           type: boolean
           description: If the vulnerability is exploitable
@@ -475,7 +483,7 @@ components:
           example: CVE-2020-10
       example:
         cvss_score: 4.7
-        description: There is a possible out of bounds write due to a use after free. This could lead to remote code execution with no additional execution privileges needed.
+        description: There is a possible out of bounds write due to a use after free.
         exploitable: true
         id: 1574086337224311383
         is_patchable: true

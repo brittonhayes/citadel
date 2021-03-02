@@ -12,7 +12,6 @@ import (
 	"net/http"
 
 	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
-	"github.com/go-kit/kit/endpoint"
 	goahttp "goa.design/goa/v3/http"
 	goa "goa.design/goa/v3/pkg"
 )
@@ -100,7 +99,7 @@ func MountFindHandler(mux goahttp.Muxer, h http.Handler) {
 // NewFindHandler creates a HTTP handler which loads the HTTP request and calls
 // the "vulnerabilities" service "find" endpoint.
 func NewFindHandler(
-	endpoint endpoint.Endpoint,
+	endpoint goa.Endpoint,
 	mux goahttp.Muxer,
 	decoder func(*http.Request) goahttp.Decoder,
 	encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -151,7 +150,7 @@ func MountListHandler(mux goahttp.Muxer, h http.Handler) {
 // NewListHandler creates a HTTP handler which loads the HTTP request and calls
 // the "vulnerabilities" service "list" endpoint.
 func NewListHandler(
-	endpoint endpoint.Endpoint,
+	endpoint goa.Endpoint,
 	mux goahttp.Muxer,
 	decoder func(*http.Request) goahttp.Decoder,
 	encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -202,7 +201,7 @@ func MountSubmitHandler(mux goahttp.Muxer, h http.Handler) {
 // NewSubmitHandler creates a HTTP handler which loads the HTTP request and
 // calls the "vulnerabilities" service "submit" endpoint.
 func NewSubmitHandler(
-	endpoint endpoint.Endpoint,
+	endpoint goa.Endpoint,
 	mux goahttp.Muxer,
 	decoder func(*http.Request) goahttp.Decoder,
 	encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,

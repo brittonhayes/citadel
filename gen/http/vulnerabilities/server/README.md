@@ -23,7 +23,7 @@ import "github.com/brittonhayes/citadel/gen/http/vulnerabilities/server"
 - [func MountListHandler(mux goahttp.Muxer, h http.Handler)](<#func-mountlisthandler>)
 - [func MountSubmitHandler(mux goahttp.Muxer, h http.Handler)](<#func-mountsubmithandler>)
 - [func NewFindHandler(
-    endpoint endpoint.Endpoint,
+    endpoint goa.Endpoint,
     mux goahttp.Muxer,
     decoder func(*http.Request) goahttp.Decoder,
     encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -32,7 +32,7 @@ import "github.com/brittonhayes/citadel/gen/http/vulnerabilities/server"
 ) http.Handler](<#func-newfindhandler>)
 - [func NewFindPayload(id uint64) *vulnerabilities.FindPayload](<#func-newfindpayload>)
 - [func NewListHandler(
-    endpoint endpoint.Endpoint,
+    endpoint goa.Endpoint,
     mux goahttp.Muxer,
     decoder func(*http.Request) goahttp.Decoder,
     encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -41,7 +41,7 @@ import "github.com/brittonhayes/citadel/gen/http/vulnerabilities/server"
 ) http.Handler](<#func-newlisthandler>)
 - [func NewListLimitPayload(limit *int32) *vulnerabilities.LimitPayload](<#func-newlistlimitpayload>)
 - [func NewSubmitHandler(
-    endpoint endpoint.Endpoint,
+    endpoint goa.Endpoint,
     mux goahttp.Muxer,
     decoder func(*http.Request) goahttp.Decoder,
     encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -75,7 +75,7 @@ import "github.com/brittonhayes/citadel/gen/http/vulnerabilities/server"
 - [type VulnerabilityResponse](<#type-vulnerabilityresponse>)
 
 
-## func DecodeFindRequest
+## func [DecodeFindRequest](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/encode_decode.go#L35>)
 
 ```go
 func DecodeFindRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.Decoder) func(*http.Request) (interface{}, error)
@@ -83,7 +83,7 @@ func DecodeFindRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.De
 
 DecodeFindRequest returns a decoder for requests sent to the vulnerabilities find endpoint\.
 
-## func DecodeListRequest
+## func [DecodeListRequest](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/encode_decode.go#L102>)
 
 ```go
 func DecodeListRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.Decoder) func(*http.Request) (interface{}, error)
@@ -91,7 +91,7 @@ func DecodeListRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.De
 
 DecodeListRequest returns a decoder for requests sent to the vulnerabilities list endpoint\.
 
-## func DecodeSubmitRequest
+## func [DecodeSubmitRequest](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/encode_decode.go#L149>)
 
 ```go
 func DecodeSubmitRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.Decoder) func(*http.Request) (interface{}, error)
@@ -99,7 +99,7 @@ func DecodeSubmitRequest(mux goahttp.Muxer, decoder func(*http.Request) goahttp.
 
 DecodeSubmitRequest returns a decoder for requests sent to the vulnerabilities submit endpoint\.
 
-## func EncodeFindError
+## func [EncodeFindError](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/encode_decode.go#L62>)
 
 ```go
 func EncodeFindError(encoder func(context.Context, http.ResponseWriter) goahttp.Encoder, formatter func(err error) goahttp.Statuser) func(context.Context, http.ResponseWriter, error) error
@@ -107,7 +107,7 @@ func EncodeFindError(encoder func(context.Context, http.ResponseWriter) goahttp.
 
 EncodeFindError returns an encoder for errors returned by the find vulnerabilities endpoint\.
 
-## func EncodeFindResponse
+## func [EncodeFindResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/encode_decode.go#L23>)
 
 ```go
 func EncodeFindResponse(encoder func(context.Context, http.ResponseWriter) goahttp.Encoder) func(context.Context, http.ResponseWriter, interface{}) error
@@ -115,7 +115,7 @@ func EncodeFindResponse(encoder func(context.Context, http.ResponseWriter) goaht
 
 EncodeFindResponse returns an encoder for responses returned by the vulnerabilities find endpoint\.
 
-## func EncodeListResponse
+## func [EncodeListResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/encode_decode.go#L90>)
 
 ```go
 func EncodeListResponse(encoder func(context.Context, http.ResponseWriter) goahttp.Encoder) func(context.Context, http.ResponseWriter, interface{}) error
@@ -123,7 +123,7 @@ func EncodeListResponse(encoder func(context.Context, http.ResponseWriter) goaht
 
 EncodeListResponse returns an encoder for responses returned by the vulnerabilities list endpoint\.
 
-## func EncodeSubmitError
+## func [EncodeSubmitError](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/encode_decode.go#L170>)
 
 ```go
 func EncodeSubmitError(encoder func(context.Context, http.ResponseWriter) goahttp.Encoder, formatter func(err error) goahttp.Statuser) func(context.Context, http.ResponseWriter, error) error
@@ -131,7 +131,7 @@ func EncodeSubmitError(encoder func(context.Context, http.ResponseWriter) goahtt
 
 EncodeSubmitError returns an encoder for errors returned by the submit vulnerabilities endpoint\.
 
-## func EncodeSubmitResponse
+## func [EncodeSubmitResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/encode_decode.go#L140>)
 
 ```go
 func EncodeSubmitResponse(encoder func(context.Context, http.ResponseWriter) goahttp.Encoder) func(context.Context, http.ResponseWriter, interface{}) error
@@ -139,7 +139,7 @@ func EncodeSubmitResponse(encoder func(context.Context, http.ResponseWriter) goa
 
 EncodeSubmitResponse returns an encoder for responses returned by the vulnerabilities submit endpoint\.
 
-## func FindVulnerabilitiesPath
+## func [FindVulnerabilitiesPath](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/paths.go#L15>)
 
 ```go
 func FindVulnerabilitiesPath(id uint64) string
@@ -147,7 +147,7 @@ func FindVulnerabilitiesPath(id uint64) string
 
 FindVulnerabilitiesPath returns the URL path to the vulnerabilities service find HTTP endpoint\.
 
-## func ListVulnerabilitiesPath
+## func [ListVulnerabilitiesPath](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/paths.go#L20>)
 
 ```go
 func ListVulnerabilitiesPath() string
@@ -155,7 +155,7 @@ func ListVulnerabilitiesPath() string
 
 ListVulnerabilitiesPath returns the URL path to the vulnerabilities service list HTTP endpoint\.
 
-## func Mount
+## func [Mount](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L81>)
 
 ```go
 func Mount(mux goahttp.Muxer, h *Server)
@@ -163,7 +163,7 @@ func Mount(mux goahttp.Muxer, h *Server)
 
 Mount configures the mux to serve the vulnerabilities endpoints\.
 
-## func MountFindHandler
+## func [MountFindHandler](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L89>)
 
 ```go
 func MountFindHandler(mux goahttp.Muxer, h http.Handler)
@@ -171,7 +171,7 @@ func MountFindHandler(mux goahttp.Muxer, h http.Handler)
 
 MountFindHandler configures the mux to serve the "vulnerabilities" service "find" endpoint\.
 
-## func MountListHandler
+## func [MountListHandler](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L140>)
 
 ```go
 func MountListHandler(mux goahttp.Muxer, h http.Handler)
@@ -179,7 +179,7 @@ func MountListHandler(mux goahttp.Muxer, h http.Handler)
 
 MountListHandler configures the mux to serve the "vulnerabilities" service "list" endpoint\.
 
-## func MountSubmitHandler
+## func [MountSubmitHandler](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L191>)
 
 ```go
 func MountSubmitHandler(mux goahttp.Muxer, h http.Handler)
@@ -187,11 +187,11 @@ func MountSubmitHandler(mux goahttp.Muxer, h http.Handler)
 
 MountSubmitHandler configures the mux to serve the "vulnerabilities" service "submit" endpoint\.
 
-## func NewFindHandler
+## func [NewFindHandler](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L101-L108>)
 
 ```go
 func NewFindHandler(
-    endpoint endpoint.Endpoint,
+    endpoint goa.Endpoint,
     mux goahttp.Muxer,
     decoder func(*http.Request) goahttp.Decoder,
     encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -202,7 +202,7 @@ func NewFindHandler(
 
 NewFindHandler creates a HTTP handler which loads the HTTP request and calls the "vulnerabilities" service "find" endpoint\.
 
-## func NewFindPayload
+## func [NewFindPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L120>)
 
 ```go
 func NewFindPayload(id uint64) *vulnerabilities.FindPayload
@@ -210,11 +210,11 @@ func NewFindPayload(id uint64) *vulnerabilities.FindPayload
 
 NewFindPayload builds a vulnerabilities service find endpoint payload\.
 
-## func NewListHandler
+## func [NewListHandler](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L152-L159>)
 
 ```go
 func NewListHandler(
-    endpoint endpoint.Endpoint,
+    endpoint goa.Endpoint,
     mux goahttp.Muxer,
     decoder func(*http.Request) goahttp.Decoder,
     encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -225,7 +225,7 @@ func NewListHandler(
 
 NewListHandler creates a HTTP handler which loads the HTTP request and calls the "vulnerabilities" service "list" endpoint\.
 
-## func NewListLimitPayload
+## func [NewListLimitPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L128>)
 
 ```go
 func NewListLimitPayload(limit *int32) *vulnerabilities.LimitPayload
@@ -233,11 +233,11 @@ func NewListLimitPayload(limit *int32) *vulnerabilities.LimitPayload
 
 NewListLimitPayload builds a vulnerabilities service list endpoint payload\.
 
-## func NewSubmitHandler
+## func [NewSubmitHandler](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L203-L210>)
 
 ```go
 func NewSubmitHandler(
-    endpoint endpoint.Endpoint,
+    endpoint goa.Endpoint,
     mux goahttp.Muxer,
     decoder func(*http.Request) goahttp.Decoder,
     encoder func(context.Context, http.ResponseWriter) goahttp.Encoder,
@@ -248,7 +248,7 @@ func NewSubmitHandler(
 
 NewSubmitHandler creates a HTTP handler which loads the HTTP request and calls the "vulnerabilities" service "submit" endpoint\.
 
-## func NewSubmitPayload
+## func [NewSubmitPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L136>)
 
 ```go
 func NewSubmitPayload(body *SubmitRequestBody) *vulnerabilities.SubmitPayload
@@ -256,7 +256,7 @@ func NewSubmitPayload(body *SubmitRequestBody) *vulnerabilities.SubmitPayload
 
 NewSubmitPayload builds a vulnerabilities service submit endpoint payload\.
 
-## func SubmitVulnerabilitiesPath
+## func [SubmitVulnerabilitiesPath](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/paths.go#L25>)
 
 ```go
 func SubmitVulnerabilitiesPath() string
@@ -264,7 +264,7 @@ func SubmitVulnerabilitiesPath() string
 
 SubmitVulnerabilitiesPath returns the URL path to the vulnerabilities service submit HTTP endpoint\.
 
-## type ErrorNamer
+## type [ErrorNamer](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L29-L31>)
 
 ErrorNamer is an interface implemented by generated error structs that exposes the name of the error as defined in the design\.
 
@@ -274,7 +274,7 @@ type ErrorNamer interface {
 }
 ```
 
-## type FindNoMatchResponseBody
+## type [FindNoMatchResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L56>)
 
 FindNoMatchResponseBody is the type of the "vulnerabilities" service "find" endpoint HTTP response body for the "no\_match" error\.
 
@@ -282,7 +282,7 @@ FindNoMatchResponseBody is the type of the "vulnerabilities" service "find" endp
 type FindNoMatchResponseBody string
 ```
 
-### func NewFindNoMatchResponseBody
+### func [NewFindNoMatchResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L107>)
 
 ```go
 func NewFindNoMatchResponseBody(res vulnerabilities.NoMatch) FindNoMatchResponseBody
@@ -290,7 +290,7 @@ func NewFindNoMatchResponseBody(res vulnerabilities.NoMatch) FindNoMatchResponse
 
 NewFindNoMatchResponseBody builds the HTTP response body from the result of the "find" endpoint of the "vulnerabilities" service\.
 
-## type FindResponseBody
+## type [FindResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L33-L48>)
 
 FindResponseBody is the type of the "vulnerabilities" service "find" endpoint HTTP response body\.
 
@@ -313,7 +313,7 @@ type FindResponseBody struct {
 }
 ```
 
-### func NewFindResponseBody
+### func [NewFindResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L82>)
 
 ```go
 func NewFindResponseBody(res *vulnerabilities.Vulnerability) *FindResponseBody
@@ -321,7 +321,7 @@ func NewFindResponseBody(res *vulnerabilities.Vulnerability) *FindResponseBody
 
 NewFindResponseBody builds the HTTP response body from the result of the "find" endpoint of the "vulnerabilities" service\.
 
-## type ListResponseBody
+## type [ListResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L52>)
 
 ListResponseBody is the type of the "vulnerabilities" service "list" endpoint HTTP response body\.
 
@@ -329,7 +329,7 @@ ListResponseBody is the type of the "vulnerabilities" service "list" endpoint HT
 type ListResponseBody []*VulnerabilityResponse
 ```
 
-### func NewListResponseBody
+### func [NewListResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L97>)
 
 ```go
 func NewListResponseBody(res []*vulnerabilities.Vulnerability) ListResponseBody
@@ -337,7 +337,7 @@ func NewListResponseBody(res []*vulnerabilities.Vulnerability) ListResponseBody
 
 NewListResponseBody builds the HTTP response body from the result of the "list" endpoint of the "vulnerabilities" service\.
 
-## type MountPoint
+## type [MountPoint](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L34-L42>)
 
 MountPoint holds information about the mounted endpoints\.
 
@@ -353,7 +353,7 @@ type MountPoint struct {
 }
 ```
 
-## type Server
+## type [Server](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L20-L25>)
 
 Server lists the vulnerabilities service endpoint HTTP handlers\.
 
@@ -366,7 +366,7 @@ type Server struct {
 }
 ```
 
-### func New
+### func [New](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L50-L57>)
 
 ```go
 func New(
@@ -381,7 +381,7 @@ func New(
 
 New instantiates HTTP handlers for all the vulnerabilities service endpoints using the provided encoder and decoder\. The handlers are mounted on the given mux using the HTTP verb and path defined in the design\. errhandler is called whenever a response fails to be encoded\. formatter is used to format errors returned by the service methods prior to encoding\. Both errhandler and formatter are optional and can be nil\.
 
-### func \(\*Server\) Service
+### func \(\*Server\) [Service](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L71>)
 
 ```go
 func (s *Server) Service() string
@@ -389,7 +389,7 @@ func (s *Server) Service() string
 
 Service returns the name of the service served\.
 
-### func \(\*Server\) Use
+### func \(\*Server\) [Use](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/server.go#L74>)
 
 ```go
 func (s *Server) Use(m func(http.Handler) http.Handler)
@@ -397,7 +397,7 @@ func (s *Server) Use(m func(http.Handler) http.Handler)
 
 Use wraps the server handlers with the given middleware\.
 
-## type SubmitNoMatchResponseBody
+## type [SubmitNoMatchResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L60>)
 
 SubmitNoMatchResponseBody is the type of the "vulnerabilities" service "submit" endpoint HTTP response body for the "no\_match" error\.
 
@@ -405,7 +405,7 @@ SubmitNoMatchResponseBody is the type of the "vulnerabilities" service "submit" 
 type SubmitNoMatchResponseBody string
 ```
 
-### func NewSubmitNoMatchResponseBody
+### func [NewSubmitNoMatchResponseBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L114>)
 
 ```go
 func NewSubmitNoMatchResponseBody(res vulnerabilities.NoMatch) SubmitNoMatchResponseBody
@@ -413,7 +413,7 @@ func NewSubmitNoMatchResponseBody(res vulnerabilities.NoMatch) SubmitNoMatchResp
 
 NewSubmitNoMatchResponseBody builds the HTTP response body from the result of the "submit" endpoint of the "vulnerabilities" service\.
 
-## type SubmitRequestBody
+## type [SubmitRequestBody](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L16-L29>)
 
 SubmitRequestBody is the type of the "vulnerabilities" service "submit" endpoint HTTP request body\.
 
@@ -434,7 +434,7 @@ type SubmitRequestBody struct {
 }
 ```
 
-## type VulnerabilityResponse
+## type [VulnerabilityResponse](<https://github.com/brittonhayes/citadel/blob/main/gen/http/vulnerabilities/server/types.go#L63-L78>)
 
 VulnerabilityResponse is used to define fields on response body types\.
 

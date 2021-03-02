@@ -10,17 +10,17 @@ import "github.com/brittonhayes/citadel/gen/vulnerabilities"
 
 - [Constants](<#constants>)
 - [Variables](<#variables>)
-- [func NewFindEndpoint(s Service) endpoint.Endpoint](<#func-newfindendpoint>)
-- [func NewListEndpoint(s Service) endpoint.Endpoint](<#func-newlistendpoint>)
-- [func NewSubmitEndpoint(s Service) endpoint.Endpoint](<#func-newsubmitendpoint>)
+- [func NewFindEndpoint(s Service) goa.Endpoint](<#func-newfindendpoint>)
+- [func NewListEndpoint(s Service) goa.Endpoint](<#func-newlistendpoint>)
+- [func NewSubmitEndpoint(s Service) goa.Endpoint](<#func-newsubmitendpoint>)
 - [type Client](<#type-client>)
-  - [func NewClient(find, list, submit endpoint.Endpoint) *Client](<#func-newclient>)
+  - [func NewClient(find, list, submit goa.Endpoint) *Client](<#func-newclient>)
   - [func (c *Client) Find(ctx context.Context, p *FindPayload) (res *Vulnerability, err error)](<#func-client-find>)
   - [func (c *Client) List(ctx context.Context, p *LimitPayload) (res []*Vulnerability, err error)](<#func-client-list>)
   - [func (c *Client) Submit(ctx context.Context, p *SubmitPayload) (err error)](<#func-client-submit>)
 - [type Endpoints](<#type-endpoints>)
   - [func NewEndpoints(s Service) *Endpoints](<#func-newendpoints>)
-  - [func (e *Endpoints) Use(m func(endpoint.Endpoint) endpoint.Endpoint)](<#func-endpoints-use>)
+  - [func (e *Endpoints) Use(m func(goa.Endpoint) goa.Endpoint)](<#func-endpoints-use>)
 - [type FindPayload](<#type-findpayload>)
 - [type LimitPayload](<#type-limitpayload>)
 - [type NoMatch](<#type-nomatch>)
@@ -47,51 +47,51 @@ MethodNames lists the service method names as defined in the design\. These are 
 var MethodNames = [3]string{"find", "list", "submit"}
 ```
 
-## func NewFindEndpoint
+## func [NewFindEndpoint](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/endpoints.go#L43>)
 
 ```go
-func NewFindEndpoint(s Service) endpoint.Endpoint
+func NewFindEndpoint(s Service) goa.Endpoint
 ```
 
 NewFindEndpoint returns an endpoint function that calls the method "find" of service "vulnerabilities"\.
 
-## func NewListEndpoint
+## func [NewListEndpoint](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/endpoints.go#L52>)
 
 ```go
-func NewListEndpoint(s Service) endpoint.Endpoint
+func NewListEndpoint(s Service) goa.Endpoint
 ```
 
 NewListEndpoint returns an endpoint function that calls the method "list" of service "vulnerabilities"\.
 
-## func NewSubmitEndpoint
+## func [NewSubmitEndpoint](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/endpoints.go#L61>)
 
 ```go
-func NewSubmitEndpoint(s Service) endpoint.Endpoint
+func NewSubmitEndpoint(s Service) goa.Endpoint
 ```
 
 NewSubmitEndpoint returns an endpoint function that calls the method "submit" of service "vulnerabilities"\.
 
-## type Client
+## type [Client](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/client.go#L17-L21>)
 
 Client is the "vulnerabilities" service client\.
 
 ```go
 type Client struct {
-    FindEndpoint   endpoint.Endpoint
-    ListEndpoint   endpoint.Endpoint
-    SubmitEndpoint endpoint.Endpoint
+    FindEndpoint   goa.Endpoint
+    ListEndpoint   goa.Endpoint
+    SubmitEndpoint goa.Endpoint
 }
 ```
 
-### func NewClient
+### func [NewClient](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/client.go#L24>)
 
 ```go
-func NewClient(find, list, submit endpoint.Endpoint) *Client
+func NewClient(find, list, submit goa.Endpoint) *Client
 ```
 
 NewClient initializes a "vulnerabilities" service client given the endpoints\.
 
-### func \(\*Client\) Find
+### func \(\*Client\) [Find](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/client.go#L36>)
 
 ```go
 func (c *Client) Find(ctx context.Context, p *FindPayload) (res *Vulnerability, err error)
@@ -99,7 +99,7 @@ func (c *Client) Find(ctx context.Context, p *FindPayload) (res *Vulnerability, 
 
 Find calls the "find" endpoint of the "vulnerabilities" service\. Find may return the following errors: \- "no\_match" \(type NoMatch\) \- error: internal error
 
-### func \(\*Client\) List
+### func \(\*Client\) [List](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/client.go#L46>)
 
 ```go
 func (c *Client) List(ctx context.Context, p *LimitPayload) (res []*Vulnerability, err error)
@@ -107,7 +107,7 @@ func (c *Client) List(ctx context.Context, p *LimitPayload) (res []*Vulnerabilit
 
 List calls the "list" endpoint of the "vulnerabilities" service\.
 
-### func \(\*Client\) Submit
+### func \(\*Client\) [Submit](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/client.go#L59>)
 
 ```go
 func (c *Client) Submit(ctx context.Context, p *SubmitPayload) (err error)
@@ -115,19 +115,19 @@ func (c *Client) Submit(ctx context.Context, p *SubmitPayload) (err error)
 
 Submit calls the "submit" endpoint of the "vulnerabilities" service\. Submit may return the following errors: \- "no\_match" \(type NoMatch\) \- error: internal error
 
-## type Endpoints
+## type [Endpoints](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/endpoints.go#L17-L21>)
 
 Endpoints wraps the "vulnerabilities" service endpoints\.
 
 ```go
 type Endpoints struct {
-    Find   endpoint.Endpoint
-    List   endpoint.Endpoint
-    Submit endpoint.Endpoint
+    Find   goa.Endpoint
+    List   goa.Endpoint
+    Submit goa.Endpoint
 }
 ```
 
-### func NewEndpoints
+### func [NewEndpoints](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/endpoints.go#L25>)
 
 ```go
 func NewEndpoints(s Service) *Endpoints
@@ -135,15 +135,15 @@ func NewEndpoints(s Service) *Endpoints
 
 NewEndpoints wraps the methods of the "vulnerabilities" service with endpoints\.
 
-### func \(\*Endpoints\) Use
+### func \(\*Endpoints\) [Use](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/endpoints.go#L35>)
 
 ```go
-func (e *Endpoints) Use(m func(endpoint.Endpoint) endpoint.Endpoint)
+func (e *Endpoints) Use(m func(goa.Endpoint) goa.Endpoint)
 ```
 
 Use applies the given middleware to all the "vulnerabilities" service endpoints\.
 
-## type FindPayload
+## type [FindPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/service.go#L36-L39>)
 
 FindPayload is the payload type of the vulnerabilities service find method\.
 
@@ -154,7 +154,7 @@ type FindPayload struct {
 }
 ```
 
-## type LimitPayload
+## type [LimitPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/service.go#L60-L63>)
 
 LimitPayload is the payload type of the vulnerabilities service list method\.
 
@@ -165,7 +165,7 @@ type LimitPayload struct {
 }
 ```
 
-## type NoMatch
+## type [NoMatch](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/service.go#L83>)
 
 No vulnerability matched given criteria
 
@@ -173,7 +173,7 @@ No vulnerability matched given criteria
 type NoMatch string
 ```
 
-### func \(NoMatch\) Error
+### func \(NoMatch\) [Error](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/service.go#L86>)
 
 ```go
 func (e NoMatch) Error() string
@@ -181,7 +181,7 @@ func (e NoMatch) Error() string
 
 Error returns an error description\.
 
-### func \(NoMatch\) ErrorName
+### func \(NoMatch\) [ErrorName](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/service.go#L91>)
 
 ```go
 func (e NoMatch) ErrorName() string
@@ -189,7 +189,7 @@ func (e NoMatch) ErrorName() string
 
 ErrorName returns "no\_match"\.
 
-## type Service
+## type [Service](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/service.go#L16-L23>)
 
 The vulnerability service handles the creation and querying of security vulnerabilities\.
 
@@ -204,7 +204,7 @@ type Service interface {
 }
 ```
 
-## type SubmitPayload
+## type [SubmitPayload](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/service.go#L67-L80>)
 
 SubmitPayload is the payload type of the vulnerabilities service submit method\.
 
@@ -225,7 +225,7 @@ type SubmitPayload struct {
 }
 ```
 
-## type Vulnerability
+## type [Vulnerability](<https://github.com/brittonhayes/citadel/blob/main/gen/vulnerabilities/service.go#L42-L57>)
 
 Vulnerability is the result type of the vulnerabilities service find method\.
 
