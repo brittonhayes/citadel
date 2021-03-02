@@ -4,7 +4,7 @@ import (
 	"context"
 	"log"
 
-	vulnerabilities "github.com/brittonhayes/citadel/gen/vulnerabilities"
+	"github.com/brittonhayes/citadel/gen/vulnerabilities"
 )
 
 // vulnerabilities service example implementation.
