@@ -7,11 +7,10 @@ before:
     # you may remove this if you don't need go generate
     - go generate ./...
 builds:
-  - main: ./cmd/citadel
+  - main: ./cmd/citadel/
     id: "server"
     env:
       - CGO_ENABLED=0
-    bin: citadel
     goos:
       - linux
       - windows
@@ -21,7 +20,6 @@ builds:
     id: "cli"
     env:
       - CGO_ENABLED=0
-    bin: citadel-cli
     goos:
       - linux
       - windows

@@ -4,8 +4,16 @@ info:
   description: HTTP service for working with Security Operations Center resources
   version: "1.0"
 servers:
-- url: http://localhost:8000/citadel
+- url: http://localhost:8000/v1/citadel
   description: citadel contains the vulnerability, risk, incident, and intel services.
+  variables:
+    version:
+      default: v1
+- url: https://localhost:8000/v1/citadel
+  description: citadel contains the vulnerability, risk, incident, and intel services.
+  variables:
+    version:
+      default: v1
 paths:
   /incidents:
     get:
@@ -21,10 +29,10 @@ paths:
         schema:
           type: integer
           description: Limit the number of results
-          example: 864
+          example: 454
           minimum: 0
           maximum: 1000
-        example: 750
+        example: 917
       responses:
         "200":
           description: OK response.
@@ -69,24 +77,41 @@ paths:
                   summary: Ipsam id praesentium blanditiis adipisci.
                   title: Tempora velit sed minima distinctio velit.
                   updated_at: "2004-11-14T00:10:42Z"
+                - Permissions: analyst
+                  affected_customers:
+                  - Quis ipsam.
+                  - Voluptatem eum.
+                  - Vero aliquam quisquam veritatis quia quis delectus.
+                  created_at: "1994-12-30T14:30:47Z"
+                  date: "1996-10-26"
+                  date_closed: "1993-08-14"
+                  id: 12043849106673499505
+                  responsible_party: Recusandae quae nobis.
+                  root_cause: Aut voluptatem deserunt non dolor omnis.
+                  scope: Qui assumenda vitae reprehenderit dolores.
+                  severity: 0
+                  slack_channel: Aliquid dolore harum.
+                  summary: Ipsam id praesentium blanditiis adipisci.
+                  title: Tempora velit sed minima distinctio velit.
+                  updated_at: "2004-11-14T00:10:42Z"
+                - Permissions: analyst
+                  affected_customers:
+                  - Quis ipsam.
+                  - Voluptatem eum.
+                  - Vero aliquam quisquam veritatis quia quis delectus.
+                  created_at: "1994-12-30T14:30:47Z"
+                  date: "1996-10-26"
+                  date_closed: "1993-08-14"
+                  id: 12043849106673499505
+                  responsible_party: Recusandae quae nobis.
+                  root_cause: Aut voluptatem deserunt non dolor omnis.
+                  scope: Qui assumenda vitae reprehenderit dolores.
+                  severity: 0
+                  slack_channel: Aliquid dolore harum.
+                  summary: Ipsam id praesentium blanditiis adipisci.
+                  title: Tempora velit sed minima distinctio velit.
+                  updated_at: "2004-11-14T00:10:42Z"
               example:
-              - Permissions: analyst
-                affected_customers:
-                - Quis ipsam.
-                - Voluptatem eum.
-                - Vero aliquam quisquam veritatis quia quis delectus.
-                created_at: "1994-12-30T14:30:47Z"
-                date: "1996-10-26"
-                date_closed: "1993-08-14"
-                id: 12043849106673499505
-                responsible_party: Recusandae quae nobis.
-                root_cause: Aut voluptatem deserunt non dolor omnis.
-                scope: Qui assumenda vitae reprehenderit dolores.
-                severity: 0
-                slack_channel: Aliquid dolore harum.
-                summary: Ipsam id praesentium blanditiis adipisci.
-                title: Tempora velit sed minima distinctio velit.
-                updated_at: "2004-11-14T00:10:42Z"
               - Permissions: analyst
                 affected_customers:
                 - Quis ipsam.
@@ -135,8 +160,8 @@ paths:
         schema:
           type: integer
           description: Unique ID of the incident
-          example: 1355286997354828281
-        example: 1265324971239134687
+          example: 17699068543616756686
+        example: 11351443747242691626
       responses:
         "200":
           description: OK response.
@@ -177,10 +202,10 @@ paths:
         schema:
           type: integer
           description: Limit the number of results
-          example: 950
+          example: 542
           minimum: 0
           maximum: 1000
-        example: 374
+        example: 389
       responses:
         "200":
           description: OK response.
@@ -191,6 +216,13 @@ paths:
                 items:
                   $ref: '#/components/schemas/Vulnerability'
                 example:
+                - cvss_score: 4.7
+                  description: There is a possible out of bounds write due to a use after free.
+                  exploitable: false
+                  id: 3819473213214139262
+                  is_patchable: false
+                  is_upgradeable: false
+                  title: CVE-2020-10
                 - cvss_score: 4.7
                   description: There is a possible out of bounds write due to a use after free.
                   exploitable: false
@@ -276,8 +308,8 @@ paths:
         schema:
           type: integer
           description: Unique ID of the vulnerability
-          example: 8714096609779316103
-        example: 347206281519856490
+          example: 17402613426058556930
+        example: 15727592453638981703
       responses:
         "200":
           description: OK response.
@@ -317,48 +349,47 @@ components:
           type: array
           items:
             type: string
-            example: In autem totam eius atque.
+            example: Fugit iusto nisi.
           description: A list of the affected customers
           example:
-          - Non nisi id aut est.
-          - Aut quis aperiam.
-          - Adipisci omnis accusamus qui quibusdam perspiciatis.
+          - Eum sit unde tempora fuga enim molestiae.
+          - Reprehenderit ab in.
         created_at:
           type: string
           description: When the incident was submitted
-          example: "2000-04-06T02:01:12Z"
+          example: "2012-03-21T08:25:37Z"
           format: date-time
         date:
           type: string
           description: Date the incident occurred
-          example: "2012-08-28"
+          example: "2016-01-11"
           format: date
         date_closed:
           type: string
           description: Date the incident occurred
-          example: "2002-07-07"
+          example: "1990-09-01"
           format: date
         id:
           type: integer
           description: Unique ID of the incident
-          example: 525910121978923289
+          example: 7765182314388888411
           minimum: 0
         responsible_party:
           type: string
           description: What group or individual caused the initial incident
-          example: Enim molestiae vel reprehenderit.
+          example: Quia est et.
         root_cause:
           type: string
           description: The original cause of the incident
-          example: Ut id eos accusantium.
+          example: Totam eius.
         scope:
           type: string
           description: The scope of impact of this incident
-          example: Fuga eum sit unde tempora.
+          example: Quae aspernatur in officia libero.
         severity:
           type: integer
           description: The severity of the incident
-          example: 5
+          example: 2
           enum:
           - 0
           - 1
@@ -369,58 +400,59 @@ components:
         slack_channel:
           type: string
           description: The slack channel for incident discussions
-          example: Mollitia ex.
+          example: Nobis iusto non nisi id.
         summary:
           type: string
           description: The detailed description of the incident
-          example: Fugit iusto nisi.
+          example: Quibusdam aut et doloremque voluptas.
         title:
           type: string
           description: The short title of the incident
-          example: Quia est et.
+          example: Reprehenderit necessitatibus corrupti repellendus sit nihil eum.
         updated_at:
           type: string
           description: When the incident was last updated
-          example: "1989-07-27T02:42:12Z"
+          example: "1995-07-02T18:09:28Z"
           format: date-time
       example:
-        Permissions: analyst
+        Permissions: admin
         affected_customers:
-        - Quo officia ipsum.
-        - Ut ut aut qui voluptatem.
-        - Et at eaque tempore pariatur.
-        created_at: "1970-11-06T00:06:42Z"
-        date: "1982-06-07"
-        date_closed: "1987-08-18"
-        id: 13669655108109456858
-        responsible_party: Fugiat repellendus dolor aperiam ad hic qui.
-        root_cause: Deleniti odio est corrupti exercitationem occaecati dicta.
-        scope: Numquam rerum et molestiae et culpa.
-        severity: 2
-        slack_channel: Nisi veniam.
-        summary: Aliquam quo esse ducimus.
-        title: Omnis doloribus.
-        updated_at: "2012-07-01T19:10:09Z"
+        - Aliquam quo esse ducimus.
+        - Numquam rerum et molestiae et culpa.
+        - Fugiat repellendus dolor aperiam ad hic qui.
+        - Et quo.
+        created_at: "1985-06-12T21:41:42Z"
+        date: "1998-02-09"
+        date_closed: "2012-10-13"
+        id: 1411951453003653651
+        responsible_party: Labore distinctio maxime est omnis.
+        root_cause: Ipsum perferendis ut ut aut qui voluptatem.
+        scope: Aut voluptates.
+        severity: 5
+        slack_channel: Et at eaque tempore pariatur.
+        summary: In sit ut inventore.
+        title: Amet voluptatem natus aut ullam.
+        updated_at: "2004-08-24T06:23:58Z"
     NoMatch:
       type: string
       description: No vulnerability matched given criteria
-      example: Et dolor ipsam.
+      example: Ea quod corporis et.
     SubmitRequestBody:
       type: object
       properties:
         cvss_score:
           type: number
           description: Severity score of the vulnerability
-          example: 0.5446501
+          example: 0.17180578
           format: float
         description:
           type: string
           description: Description of the vulnerability
-          example: Suscipit provident et quis et.
+          example: Dolor ipsam.
         exploitable:
           type: boolean
           description: If the vulnerability is exploitable
-          example: false
+          example: true
         is_patchable:
           type: boolean
           description: If the vulnerability is patchable
@@ -432,14 +464,14 @@ components:
         title:
           type: string
           description: Title of the vulnerability
-          example: Adipisci totam hic officia voluptatem nesciunt.
+          example: Deserunt ut qui.
       example:
-        cvss_score: 0.8337925
-        description: Similique est dolor sit corporis excepturi quia.
+        cvss_score: 0.5446501
+        description: Provident et quis et.
         exploitable: false
         is_patchable: true
         is_upgradeable: false
-        title: Placeat modi debitis.
+        title: Officia voluptatem nesciunt quia.
     Vulnerability:
       type: object
       properties:
@@ -455,11 +487,11 @@ components:
         exploitable:
           type: boolean
           description: If the vulnerability is exploitable
-          example: true
+          example: false
         id:
           type: integer
           description: Unique ID of the vulnerability
-          example: 9125872748072862608
+          example: 7136667751552520838
           minimum: 0
         is_patchable:
           type: boolean
@@ -468,7 +500,7 @@ components:
         is_upgradeable:
           type: boolean
           description: If the vulnerability is upgradeable
-          example: false
+          example: true
         title:
           type: string
           description: Title of the vulnerability
@@ -477,8 +509,8 @@ components:
         cvss_score: 4.7
         description: There is a possible out of bounds write due to a use after free.
         exploitable: true
-        id: 1574086337224311383
-        is_patchable: true
+        id: 14762354588769226164
+        is_patchable: false
         is_upgradeable: false
         title: CVE-2020-10
       required:

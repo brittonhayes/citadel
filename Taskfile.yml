@@ -1,0 +1,24 @@
+# https://taskfile.dev
+
+version: '3'
+
+tasks:
+  default:
+    cmds:
+      - task: build
+
+  build:
+    desc: "Build the project binaries"
+    cmds:
+      - go build -o ./bin/citadel ./cmd/citadel
+      - go build -o ./bin/citadel-cli ./cmd/citadel-cli
+
+  server:
+    desc: "Run the citadel server"
+    cmds:
+      - ./bin/citadel
+
+  gen:
+    desc: "Generate updated project files"
+    cmds:
+      - go generate

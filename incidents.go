@@ -3,8 +3,9 @@ package citadel
 import (
 	"context"
 	"log"
+	"time"
 
-	incidents "github.com/brittonhayes/citadel/gen/incidents"
+	"github.com/brittonhayes/citadel/gen/incidents"
 )
 
 // incidents service example implementation.
@@ -20,7 +21,14 @@ func NewIncidents(logger *log.Logger) incidents.Service {
 
 // Find implements find.
 func (s *incidentssrvc) Find(ctx context.Context, p *incidents.FindPayload) (res *incidents.Incident, err error) {
-	res = &incidents.Incident{}
+	var (
+		title = "hello"
+		date  = time.Now().String()
+	)
+	res = &incidents.Incident{
+		Title: &title,
+		Date:  &date,
+	}
 	s.logger.Print("incidents.find")
 	return
 }

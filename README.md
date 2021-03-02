@@ -11,6 +11,18 @@ with [goa](https://github.com/goadesign/goa)
 
 The citadel service includes a server as well as a command line interface. Let's get started using them together.
 
+### Taskfile
+
+This project uses [Taskfiles](https://taskfile.dev) as an alternative to Makefiles. To list the available commands run:
+
+```shell
+❯ task -l
+task: Available tasks for this project:
+* build: 	Build the project binaries
+* gen: 		Generate updated project files
+* server: 	Run the citadel server
+```
+
 ### Server
 
 ```shell
@@ -38,12 +50,22 @@ go run citadel-cli
 
 ## Development
 
+### GRPC Dependencies
+
+```shell
+# Install protobuf
+brew install protobuf
+
+# Install protobuf go plugin
+go get -u github.com/golang/protobuf/protoc-gen-go
+```
+
 ### Contributing
 
 Want to contribute to Citadel? Feel free!
 
-Any development to citadel should be done to `design files` and `business logic` files.
-Everything else is auto-generated, so if you make changes to these files they will disappear.
+Any development to citadel should be done to `design files` and `business logic` files. Everything else is
+auto-generated, so if you make changes to these files they will disappear.
 
 ### Project Structure
 
@@ -55,7 +77,6 @@ Everything else is auto-generated, so if you make changes to these files they wi
 |[design/incident.go](design/incident.go) | Security incident service API design  | `API Design` |
 |[design/vulnerability.go](design/vulnerability.go) | Security vulnerability service API design | `API design` |
 
-
 ---
 
 ## References
@@ -64,13 +85,17 @@ Everything else is auto-generated, so if you make changes to these files they wi
 
 Security Operations Micro-Services
 
-> Citadel is a compilation of Security Operations (SecOps) microservices built with goa. Each service functions independently, allowing you to use all of them or just the service that fits your needs. The goal of the project is to provide a baseline set of services that a team could easily store, query, and interact with SecOps resources.
+> Citadel is a compilation of Security Operations (SecOps) microservices built with goa. 
+> Each service functions independently, allowing you to use all of them or just the service that fits your needs. 
+> The goal of the project is to provide a baseline set of services that a team could easily store, query, and interact with SecOps resources.
 
 ### Goa
 
 Design First Services
 
-> [Goa](https://github.com/goadesign/goa) allows this project to be very flexible to design changes. All the code and REST API documentation is generated based on the [design](./design/design.go) specification. The flexibility of this comes into play in the event that a resource or service needs to be expanded upon, added, or removed without untangling anything.
+> [Goa](https://github.com/goadesign/goa) allows this project to be very flexible to design changes. 
+> All the code and REST API documentation is generated based on the [design](./design/design.go) specification. 
+> The flexibility of this comes into play in the event that a resource or service needs to be expanded upon, added, or removed without untangling anything.
 
 ---
 

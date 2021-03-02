@@ -132,7 +132,7 @@ definitions:
       Permissions:
         type: string
         description: Permissions associated with incident
-        example: admin
+        example: analyst
         enum:
         - admin
         - analyst
@@ -141,44 +141,44 @@ definitions:
         type: array
         items:
           type: string
-          example: Sint suscipit placeat et dolorem.
+          example: Eos quam modi.
         description: A list of the affected customers
         example:
-        - Beatae totam deleniti doloremque iusto aspernatur voluptatum.
-        - Eos quam modi.
-        - Ipsam sed est dicta libero suscipit.
+        - Sed est.
+        - Libero suscipit.
+        - Ut eveniet autem sint non vero repellendus.
       created_at:
         type: string
         description: When the incident was submitted
-        example: "1995-01-19T16:58:53Z"
+        example: "1999-04-16T07:03:39Z"
         format: date-time
       date:
         type: string
         description: Date the incident occurred
-        example: "2010-01-01"
+        example: "1975-11-21"
         format: date
       date_closed:
         type: string
         description: Date the incident occurred
-        example: "1986-09-10"
+        example: "2010-01-09"
         format: date
       id:
         type: integer
         description: Unique ID of the incident
-        example: 17983405837322284101
+        example: 13851082882946060875
         minimum: 0
       responsible_party:
         type: string
         description: What group or individual caused the initial incident
-        example: Rerum veritatis omnis sit eveniet.
+        example: Doloremque iusto aspernatur voluptatum.
       root_cause:
         type: string
         description: The original cause of the incident
-        example: Ut eveniet autem sint non vero repellendus.
+        example: In tenetur sit cumque deserunt.
       scope:
         type: string
         description: The scope of impact of this incident
-        example: Nihil eos.
+        example: Enim beatae totam.
       severity:
         type: integer
         description: The severity of the incident
@@ -193,39 +193,37 @@ definitions:
       slack_channel:
         type: string
         description: The slack channel for incident discussions
-        example: In tenetur sit cumque deserunt.
+        example: Consequatur architecto vel aut.
       summary:
         type: string
         description: The detailed description of the incident
-        example: Labore sunt.
+        example: Molestias sint suscipit placeat et dolorem.
       title:
         type: string
         description: The short title of the incident
-        example: Unde iste dicta doloremque qui.
+        example: Veritatis omnis sit.
       updated_at:
         type: string
         description: When the incident was last updated
-        example: "1981-05-26T16:14:04Z"
+        example: "1996-05-22T12:44:17Z"
         format: date-time
     example:
       Permissions: analyst
       affected_customers:
-      - Dolor praesentium ut qui voluptates.
-      - Alias saepe et.
-      - Consequuntur enim omnis numquam corporis amet.
-      - Cum ipsum magni tenetur et.
-      created_at: "1992-08-26T10:48:43Z"
-      date: "1989-05-11"
-      date_closed: "2000-11-04"
-      id: 8928357878783631610
-      responsible_party: Ipsam et.
-      root_cause: Quidem et velit dolore.
-      scope: Voluptatem sit quisquam eveniet maiores.
-      severity: 2
-      slack_channel: Voluptatem omnis expedita.
-      summary: Fugit dicta voluptas aut explicabo.
-      title: Reprehenderit ullam enim cum enim.
-      updated_at: "1991-06-03T12:11:33Z"
+      - Ut qui.
+      - Quia alias saepe.
+      created_at: "1984-02-12T17:04:46Z"
+      date: "2011-01-17"
+      date_closed: "1988-09-29"
+      id: 7356689513580501747
+      responsible_party: Illum iusto.
+      root_cause: Nemo consequuntur enim omnis numquam.
+      scope: Quisquam eveniet maiores rerum ipsam.
+      severity: 3
+      slack_channel: Amet sint.
+      summary: Dicta voluptas aut explicabo autem voluptatem.
+      title: Enim ratione.
+      updated_at: "1984-10-16T10:22:51Z"
   IncidentsFindResponseBody:
     title: IncidentsFindResponseBody
     type: object
@@ -233,7 +231,7 @@ definitions:
       Permissions:
         type: string
         description: Permissions associated with incident
-        example: guest
+        example: analyst
         enum:
         - admin
         - analyst
@@ -242,49 +240,49 @@ definitions:
         type: array
         items:
           type: string
-          example: Possimus ut consequuntur sed.
+          example: Totam doloremque odio et perspiciatis.
         description: A list of the affected customers
         example:
-        - Minus ipsa harum voluptas totam.
-        - Odio et perspiciatis deserunt inventore qui.
-        - Enim molestiae aut sed cupiditate.
-        - Dolorem ducimus.
+        - Qui veritatis enim molestiae.
+        - Sed cupiditate quibusdam.
+        - Ducimus ad atque eos repudiandae in.
+        - Ad in delectus sunt expedita esse nemo.
       created_at:
         type: string
         description: When the incident was submitted
-        example: "2011-04-03T17:22:05Z"
+        example: "2012-05-19T02:12:26Z"
         format: date-time
       date:
         type: string
         description: Date the incident occurred
-        example: "2011-05-22"
+        example: "1987-11-27"
         format: date
       date_closed:
         type: string
         description: Date the incident occurred
-        example: "1984-09-08"
+        example: "2006-06-21"
         format: date
       id:
         type: integer
         description: Unique ID of the incident
-        example: 1874956703170258092
+        example: 5535268332944539256
         minimum: 0
       responsible_party:
         type: string
         description: What group or individual caused the initial incident
-        example: Quis sed occaecati.
+        example: Perferendis minus ipsa harum.
       root_cause:
         type: string
         description: The original cause of the incident
-        example: Atque eos repudiandae in.
+        example: Veniam quod enim eligendi.
       scope:
         type: string
         description: The scope of impact of this incident
-        example: Minus atque numquam.
+        example: Possimus ut consequuntur sed.
       severity:
         type: integer
         description: The severity of the incident
-        example: 1
+        example: 5
         enum:
         - 0
         - 1
@@ -295,43 +293,44 @@ definitions:
       slack_channel:
         type: string
         description: The slack channel for incident discussions
-        example: Ad in delectus sunt expedita esse nemo.
+        example: Excepturi sapiente minus.
       summary:
         type: string
         description: The detailed description of the incident
-        example: Delectus quisquam ratione id nihil eum accusantium.
+        example: Numquam asperiores quis sed occaecati.
       title:
         type: string
         description: The short title of the incident
-        example: Atque aut assumenda.
+        example: Nihil eum accusantium recusandae minus.
       updated_at:
         type: string
         description: When the incident was last updated
-        example: "2005-02-03T04:02:13Z"
+        example: "2013-02-27T22:12:00Z"
         format: date-time
     example:
       Permissions: analyst
       affected_customers:
-      - Nesciunt numquam.
       - Dolore sit.
       - Eius velit dicta atque dolorum aut.
-      created_at: "1971-06-08T00:13:52Z"
-      date: "1987-12-09"
-      date_closed: "2010-06-06"
-      id: 10091559795463585895
-      responsible_party: Enim quasi quo saepe cumque deserunt voluptatibus.
-      root_cause: Voluptas quaerat et.
-      scope: Fugit commodi.
+      - Voluptas quaerat et.
+      - Eveniet cumque perferendis voluptatem.
+      created_at: "1999-12-14T10:43:30Z"
+      date: "1981-01-09"
+      date_closed: "1992-06-17"
+      id: 12624668168864766646
+      responsible_party: Iste quibusdam nesciunt.
+      root_cause: Corrupti velit beatae laborum ex.
+      scope: Quo saepe cumque deserunt.
       severity: 4
-      slack_channel: Eveniet cumque perferendis voluptatem.
-      summary: Ut nesciunt maxime.
-      title: Deleniti ratione cumque non asperiores at pariatur.
-      updated_at: "2015-10-19T22:22:03Z"
+      slack_channel: Deserunt quia vero aut.
+      summary: Maxime enim.
+      title: Rerum ut nesciunt maxime fugiat fugit.
+      updated_at: "1987-07-07T08:26:57Z"
   VulnerabilitiesFindNoMatchResponseBody:
     title: VulnerabilitiesFindNoMatchResponseBody
     type: string
     description: No vulnerability matched given criteria
-    example: Atque atque numquam atque ducimus.
+    example: Tenetur excepturi.
   VulnerabilitiesFindResponseBody:
     title: VulnerabilitiesFindResponseBody
     type: object
@@ -352,7 +351,7 @@ definitions:
       id:
         type: integer
         description: Unique ID of the vulnerability
-        example: 14165359203091955058
+        example: 4108176649617544775
         minimum: 0
       is_patchable:
         type: boolean
@@ -361,7 +360,7 @@ definitions:
       is_upgradeable:
         type: boolean
         description: If the vulnerability is upgradeable
-        example: true
+        example: false
       title:
         type: string
         description: Title of the vulnerability
@@ -369,10 +368,10 @@ definitions:
     example:
       cvss_score: 4.7
       description: There is a possible out of bounds write due to a use after free.
-      exploitable: false
-      id: 12474090057829049257
-      is_patchable: true
-      is_upgradeable: true
+      exploitable: true
+      id: 13566990770739886986
+      is_patchable: false
+      is_upgradeable: false
       title: CVE-2020-10
     required:
     - id
@@ -380,7 +379,7 @@ definitions:
     title: VulnerabilitiesSubmitNoMatchResponseBody
     type: string
     description: No vulnerability matched given criteria
-    example: Facere qui eos magnam dolor.
+    example: Sunt corporis et ab atque.
   VulnerabilitiesSubmitRequestBody:
     title: VulnerabilitiesSubmitRequestBody
     type: object
@@ -388,16 +387,16 @@ definitions:
       cvss_score:
         type: number
         description: Severity score of the vulnerability
-        example: 0.8975647
+        example: 0.29196134
         format: float
       description:
         type: string
         description: Description of the vulnerability
-        example: Nam aut est voluptas commodi voluptatem consequatur.
+        example: Quis corporis harum odio ut.
       exploitable:
         type: boolean
         description: If the vulnerability is exploitable
-        example: true
+        example: false
       is_patchable:
         type: boolean
         description: If the vulnerability is patchable
@@ -405,18 +404,18 @@ definitions:
       is_upgradeable:
         type: boolean
         description: If the vulnerability is upgradeable
-        example: true
+        example: false
       title:
         type: string
         description: Title of the vulnerability
-        example: Ut aliquid officiis aperiam dolorem quia rerum.
+        example: Numquam atque ducimus sed numquam.
     example:
-      cvss_score: 0.14538865
-      description: Repellendus atque alias minus.
+      cvss_score: 0.041079648
+      description: Aperiam dolorem quia rerum ut nam.
       exploitable: false
       is_patchable: true
-      is_upgradeable: true
-      title: Consequatur est.
+      is_upgradeable: false
+      title: Dolor sequi ut aliquid.
   VulnerabilityResponse:
     title: VulnerabilityResponse
     type: object
@@ -433,11 +432,11 @@ definitions:
       exploitable:
         type: boolean
         description: If the vulnerability is exploitable
-        example: false
+        example: true
       id:
         type: integer
         description: Unique ID of the vulnerability
-        example: 13804450887465042763
+        example: 6577106129379970609
         minimum: 0
       is_patchable:
         type: boolean
@@ -446,7 +445,7 @@ definitions:
       is_upgradeable:
         type: boolean
         description: If the vulnerability is upgradeable
-        example: true
+        example: false
       title:
         type: string
         description: Title of the vulnerability
@@ -454,10 +453,10 @@ definitions:
     example:
       cvss_score: 4.7
       description: There is a possible out of bounds write due to a use after free.
-      exploitable: false
-      id: 16284005953265787933
+      exploitable: true
+      id: 14165359203091955058
       is_patchable: false
-      is_upgradeable: false
+      is_upgradeable: true
       title: CVE-2020-10
     required:
     - id
